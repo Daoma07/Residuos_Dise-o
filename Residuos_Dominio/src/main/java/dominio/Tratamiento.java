@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package usuario;
+package dominio;
 
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -14,7 +14,6 @@ import org.bson.types.ObjectId;
  */
 public class Tratamiento {
 
-    private ObjectId id;
     private String detalle;
     private List<Residuo> residuos;
 
@@ -31,17 +30,8 @@ public class Tratamiento {
     }
 
     public Tratamiento(ObjectId id, String detalle, List<Residuo> residuos) {
-        this.id = id;
         this.detalle = detalle;
         this.residuos = residuos;
-    }
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
-        this.id = id;
     }
 
     public String getDetalle() {
