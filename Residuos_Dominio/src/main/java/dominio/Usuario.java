@@ -21,30 +21,22 @@ public class Usuario {
     private String nombre;
     private String rfc;
     private Credencial credencial;
-    private Direccion direccion;
 
     public Usuario() {
-    }
-
-    public Usuario(String nombre, String rfc, Credencial credencial, Direccion direccion) {
-        this.nombre = nombre;
-        this.rfc = rfc;
-        this.credencial = credencial;
-        this.direccion = direccion;
     }
 
     public Usuario(String nombre, String rfc, Credencial credencial) {
         this.nombre = nombre;
         this.rfc = rfc;
         this.credencial = credencial;
+
     }
 
-    public Usuario(ObjectId id, String nombre, String rfc, Credencial credencial, Direccion direccion) {
+    public Usuario(ObjectId id, String nombre, String rfc, Credencial credencial) {
         this.id = id;
         this.nombre = nombre;
         this.rfc = rfc;
         this.credencial = credencial;
-        this.direccion = direccion;
     }
 
     public ObjectId getId() {
@@ -77,14 +69,6 @@ public class Usuario {
 
     public void setCredencial(Credencial credencial) {
         this.credencial = credencial;
-    }
-
-    public Direccion getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
     }
 
     @Override

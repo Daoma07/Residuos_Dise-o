@@ -16,16 +16,12 @@ public class Administrador extends Usuario {
     public Administrador() {
     }
 
-    public Administrador(String nombre, String rfc, Credencial credencial, Direccion direccion) {
-        super(nombre, rfc, credencial, direccion);
-    }
-
     public Administrador(String nombre, String rfc, Credencial credencial) {
         super(nombre, rfc, credencial);
     }
 
-    public Administrador(ObjectId id, String nombre, String rfc, Credencial credencial, Direccion direccion) {
-        super(id, nombre, rfc, credencial, direccion);
+    public Administrador(ObjectId id, String nombre, String rfc, Credencial credencial) {
+        super(id, nombre, rfc, credencial);
     }
 
 }

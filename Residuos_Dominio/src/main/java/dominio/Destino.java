@@ -13,23 +13,43 @@ import java.util.Calendar;
  */
 public class Destino {
 
-    private Direccion direccion;
-    Calendar fechaLlegada;
+    private String calle;
+    private String numero;
+    private String colonia;
+    private Calendar fechaLlegada;
 
     public Destino() {
     }
 
-    public Destino(Direccion direccion, Calendar fechaLlegada) {
-        this.direccion = direccion;
+    public Destino(String calle, String numero, String colonia, Calendar fechaLlegada) {
+        this.calle = calle;
+        this.numero = numero;
+        this.colonia = colonia;
         this.fechaLlegada = fechaLlegada;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
+    public String getCalle() {
+        return calle;
     }
 
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getColonia() {
+        return colonia;
+    }
+
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
     }
 
     public Calendar getFechaLlegada() {

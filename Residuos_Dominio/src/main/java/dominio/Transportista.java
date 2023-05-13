@@ -20,16 +20,12 @@ public class Transportista extends Usuario {
     public Transportista() {
     }
 
-    public Transportista(String nombre, String rfc, Credencial credencial, Direccion direccion) {
-        super(nombre, rfc, credencial, direccion);
-    }
-
     public Transportista(String nombre, String rfc, Credencial credencial) {
         super(nombre, rfc, credencial);
     }
 
-    public Transportista(ObjectId id, String nombre, String rfc, Credencial credencial, Direccion direccion) {
-        super(id, nombre, rfc, credencial, direccion);
+    public Transportista(ObjectId id, String nombre, String rfc, Credencial credencial) {
+        super(id, nombre, rfc, credencial);
     }
 
     public List<Flete> getFletes() {
