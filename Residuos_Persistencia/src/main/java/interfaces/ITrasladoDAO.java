@@ -6,6 +6,7 @@
 package interfaces;
 
 import dominio.Traslado;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,10 @@ import dominio.Traslado;
 public interface ITrasladoDAO {
  
     public Traslado agregarTraslado(Traslado traslado);
+    
+    public void eliminarTraslado(int id);
+    
+    public Traslado editarTraslado(Traslado traslado);
+    
+    public List<Traslado> consultarQuimicos();
 }

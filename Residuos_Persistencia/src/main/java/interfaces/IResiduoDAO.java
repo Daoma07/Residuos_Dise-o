@@ -6,6 +6,7 @@
 package interfaces;
 
 import dominio.Residuo;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,10 @@ import dominio.Residuo;
 public interface IResiduoDAO {
 
     public Residuo agregarResiduo(Residuo residuo);
+    
+    public void eliminarResiduo(int id);
+    
+    public Residuo editarResiduo(Residuo residuo);
+    
+    public List<Residuo> consultarQuimicos();
 }

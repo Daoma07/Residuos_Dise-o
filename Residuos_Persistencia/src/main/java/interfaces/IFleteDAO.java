@@ -6,13 +6,21 @@
 package interfaces;
 
 import dominio.Flete;
+import java.util.List;
+import org.bson.types.ObjectId;
 
 /**
  *
  * @author HP
  */
 public interface IFleteDAO {
-
+    
     public Flete agregarFlete(Flete flete);
-
+    
+    public void eliminarFlete(ObjectId id);
+    
+    public Flete editarFlete(Flete flete);
+    
+    public List<Flete> consultarFlete();
+    
 }

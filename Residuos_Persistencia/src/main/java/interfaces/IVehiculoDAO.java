@@ -6,6 +6,7 @@
 package interfaces;
 
 import dominio.Vehiculo;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,10 @@ import dominio.Vehiculo;
 public interface IVehiculoDAO {
 
     public Vehiculo agregarVehiculo(Vehiculo vehiculo);
+    
+    public void eliminarVehiculo(int id);
+    
+    public Vehiculo editarVehiculo(Vehiculo vehiculo);
+    
+    public List<Vehiculo> consultarQuimicos();
 }

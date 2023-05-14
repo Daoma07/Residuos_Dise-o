@@ -6,6 +6,7 @@
 package interfaces;
 
 import dominio.Administrador;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,10 @@ import dominio.Administrador;
 public interface IAdministradorDAO {
 
     public Administrador agregarAdministrador(Administrador administrador); 
+    
+    public void eliminarAdministrador(int id);
+    
+    public Administrador editarAdministrador(Administrador administrador);
+    
+    public List<Administrador> consultarQuimicos();
 }

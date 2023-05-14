@@ -6,6 +6,8 @@
 package interfaces;
 
 import dominio.Productor;
+import dominio.Quimico;
+import java.util.List;
 
 /**
  *
@@ -14,4 +16,10 @@ import dominio.Productor;
 public interface IProductorDAO {
 
     public Productor agregarProductor(Productor administrador);
+    
+    public void eliminarProductor(int id);
+    
+    public Productor editarProductor(Productor administrador);
+    
+    public List<Productor> consultarProductor();
 }
