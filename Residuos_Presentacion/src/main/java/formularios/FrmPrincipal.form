@@ -118,6 +118,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRegistrarResiduoProductor">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="85" green="8b" red="33" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Registrar Residuo"/>
       </Properties>
       <Events>
@@ -126,6 +129,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSolicitarTrasladoProductor">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="85" green="8b" red="33" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Solicitar Traslado"/>
       </Properties>
       <Events>
@@ -134,11 +140,17 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnVerTrasladosAdministrador">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="85" green="8b" red="33" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ver Traslados"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnRegistrarTrasladoTransportista">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="85" green="8b" red="33" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Registrar Traslado"/>
       </Properties>
     </Component>

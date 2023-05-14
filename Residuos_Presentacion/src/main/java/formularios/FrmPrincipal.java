@@ -74,7 +74,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(950, 650));
 
         jPanel1.setBackground(new java.awt.Color(51, 139, 133));
 
@@ -97,6 +96,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnRegistrarResiduoProductor.setBackground(new java.awt.Color(51, 139, 133));
         btnRegistrarResiduoProductor.setText("Registrar Residuo");
         btnRegistrarResiduoProductor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +104,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnSolicitarTrasladoProductor.setBackground(new java.awt.Color(51, 139, 133));
         btnSolicitarTrasladoProductor.setText("Solicitar Traslado");
         btnSolicitarTrasladoProductor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,8 +112,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnVerTrasladosAdministrador.setBackground(new java.awt.Color(51, 139, 133));
         btnVerTrasladosAdministrador.setText("Ver Traslados");
 
+        btnRegistrarTrasladoTransportista.setBackground(new java.awt.Color(51, 139, 133));
         btnRegistrarTrasladoTransportista.setText("Registrar Traslado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
