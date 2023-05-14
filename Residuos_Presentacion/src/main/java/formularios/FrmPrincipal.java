@@ -61,6 +61,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JLabel();
+        btnRegistrarResiduoProductor = new javax.swing.JButton();
+        btnSolicitarTrasladoProductor = new javax.swing.JButton();
+        btnVerTrasladosAdministrador = new javax.swing.JButton();
+        btnRegistrarTrasladoTransportista = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -70,6 +74,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(950, 650));
 
         jPanel1.setBackground(new java.awt.Color(51, 139, 133));
 
@@ -92,15 +97,43 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnRegistrarResiduoProductor.setText("Registrar Residuo");
+        btnRegistrarResiduoProductor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarResiduoProductorActionPerformed(evt);
+            }
+        });
+
+        btnSolicitarTrasladoProductor.setText("Solicitar Traslado");
+        btnSolicitarTrasladoProductor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSolicitarTrasladoProductorActionPerformed(evt);
+            }
+        });
+
+        btnVerTrasladosAdministrador.setText("Ver Traslados");
+
+        btnRegistrarTrasladoTransportista.setText("Registrar Traslado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 568, Short.MAX_VALUE)
-                .addComponent(btnSalir)
-                .addGap(33, 33, 33))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalir)
+                        .addGap(33, 33, 33))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(243, 243, 243)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRegistrarTrasladoTransportista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSolicitarTrasladoProductor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRegistrarResiduoProductor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVerTrasladosAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(370, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +141,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(btnSalir)
-                .addContainerGap(387, Short.MAX_VALUE))
+                .addGap(89, 89, 89)
+                .addComponent(btnVerTrasladosAdministrador)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRegistrarResiduoProductor)
+                .addGap(18, 18, 18)
+                .addComponent(btnSolicitarTrasladoProductor)
+                .addGap(18, 18, 18)
+                .addComponent(btnRegistrarTrasladoTransportista)
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,9 +163,25 @@ public class FrmPrincipal extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_btnSalirMouseClicked
 
+    private void btnSolicitarTrasladoProductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarTrasladoProductorActionPerformed
+        // TODO add your handling code here:
+        FrmSolicitudesTraslados frmSolicitudesTraslados = new FrmSolicitudesTraslados();
+        frmSolicitudesTraslados.setVisible(true);
+    }//GEN-LAST:event_btnSolicitarTrasladoProductorActionPerformed
+
+    private void btnRegistrarResiduoProductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarResiduoProductorActionPerformed
+        // TODO add your handling code here:
+        FrmRegistrarResiduos frmRegistrarResiduos = new FrmRegistrarResiduos();
+        frmRegistrarResiduos.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarResiduoProductorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistrarResiduoProductor;
+    private javax.swing.JButton btnRegistrarTrasladoTransportista;
     private javax.swing.JLabel btnSalir;
+    private javax.swing.JButton btnSolicitarTrasladoProductor;
+    private javax.swing.JButton btnVerTrasladosAdministrador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
