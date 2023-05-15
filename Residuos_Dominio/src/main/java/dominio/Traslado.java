@@ -5,6 +5,7 @@
  */
 package dominio;
 
+import java.util.Calendar;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -19,7 +20,16 @@ public class Traslado {
     private boolean envioParcial;
     private Residuo residuo;
     private List<Flete> fletes;
+    private Calendar fechaSolicitada;
 
+    public Traslado(float cantidad, boolean envioParcial, Residuo residuo, List<Flete> fletes, Calendar fechaSolicitada) {
+        this.cantidad = cantidad;
+        this.envioParcial = envioParcial;
+        this.residuo = residuo;
+        this.fletes = fletes;
+        this.fechaSolicitada = fechaSolicitada;
+    }
+    
     public Traslado() {
     }
 
@@ -80,5 +90,15 @@ public class Traslado {
     public void setFletes(List<Flete> fletes) {
         this.fletes = fletes;
     }
+
+    public Calendar getFechaSolicitada() {
+        return fechaSolicitada;
+    }
+
+    public void setFechaSolicitada(Calendar fechaSolicitada) {
+        this.fechaSolicitada = fechaSolicitada;
+    }
+    
+    
 
 }
