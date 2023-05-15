@@ -6,6 +6,7 @@
 package interfaces;
 
 import dominio.Transportista;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,10 @@ import dominio.Transportista;
 public interface ITransportistaDAO {
 
     public Transportista agregarTransportista(Transportista transportista); 
+    
+    public void eliminarTransportista(int id); 
+    
+    public Transportista editarTransportista(Transportista transportista); 
+    
+    public List<Transportista> consultarQuimicos();
 }
