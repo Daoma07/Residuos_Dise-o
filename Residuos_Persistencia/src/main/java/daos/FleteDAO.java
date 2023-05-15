@@ -3,32 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package daos;
+
 import baseDatos.ConexionMongoDB;
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Updates;
 import dominio.Flete;
 import interfaces.IFleteDAO;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+
 /**
  *
  * @author Jorge
  */
-public class FleteDAO implements IFleteDAO{
+public class FleteDAO implements IFleteDAO {
+
     private final ConexionMongoDB CONEXION;
     private final MongoDatabase BASE_DATOS;
-    private final MongoCollection <Flete> COLECCION;
+    private final MongoCollection<Flete> COLECCION;
 
     public FleteDAO(ConexionMongoDB CONEXION) {
         this.CONEXION = CONEXION;
         this.BASE_DATOS = CONEXION.getBaseDatos();
         this.COLECCION = BASE_DATOS.getCollection("fletes", Flete.class);
     }
-    
-    
+
     @Override
     public Flete agregarFlete(Flete flete) {
         try {
@@ -60,5 +60,5 @@ public class FleteDAO implements IFleteDAO{
     public List<Flete> consultarFlete() {
         return null;
     }
-    
+
 }

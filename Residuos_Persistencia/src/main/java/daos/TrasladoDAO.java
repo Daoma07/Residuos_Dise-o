@@ -3,14 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package daos;
+
+import baseDatos.ConexionMongoDB;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import dominio.Administrador;
 import dominio.Traslado;
 import interfaces.ITrasladoDAO;
 import java.util.List;
+
 /**
  *
  * @author Jorge
  */
-public class TrasladoDAO implements ITrasladoDAO{
+public class TrasladoDAO implements ITrasladoDAO {
+
+    private final ConexionMongoDB CONEXION;
+    private final MongoDatabase BASE_DATOS;
+    private final MongoCollection<Traslado> COLECCION;
+
+    public TrasladoDAO(ConexionMongoDB CONEXION) {
+        this.CONEXION = CONEXION;
+        this.BASE_DATOS = CONEXION.getBaseDatos();
+        this.COLECCION = BASE_DATOS.getCollection("traslados", Traslado.class);
+    }
 
     @Override
     public Traslado agregarTraslado(Traslado traslado) {
@@ -31,5 +47,5 @@ public class TrasladoDAO implements ITrasladoDAO{
     public List<Traslado> consultarQuimicos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

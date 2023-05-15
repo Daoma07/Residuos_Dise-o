@@ -18,7 +18,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  *
  * @author HP
  */
-public class ConexionMongoDB {
+public class ConexionMongoDB implements IConexionBD {
 
     public final String NOMBRE_BASE_DATOS = "residuos_quimicos";
     private MongoDatabase baseDatos;
@@ -37,4 +37,5 @@ public class ConexionMongoDB {
         }
         return baseDatos;
     }
+
 }

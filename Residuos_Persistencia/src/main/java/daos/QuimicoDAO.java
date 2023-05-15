@@ -3,14 +3,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package daos;
+
+import baseDatos.ConexionMongoDB;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import dominio.Quimico;
 import interfaces.IQuimicoDAO;
 import java.util.List;
+
 /**
  *
  * @author Jorge
  */
-public class QuimicoDAO implements IQuimicoDAO{
+public class QuimicoDAO implements IQuimicoDAO {
+
+    private final ConexionMongoDB CONEXION;
+    private final MongoDatabase BASE_DATOS;
+    private final MongoCollection<Quimico> COLECCION;
+
+    public QuimicoDAO(ConexionMongoDB CONEXION) {
+        this.CONEXION = CONEXION;
+        this.BASE_DATOS = CONEXION.getBaseDatos();
+        this.COLECCION = BASE_DATOS.getCollection("quimicos", Quimico.class);
+    }
 
     @Override
     public Quimico agregarQuimico(Quimico quimico) {
@@ -31,5 +46,5 @@ public class QuimicoDAO implements IQuimicoDAO{
     public List<Quimico> consultarQuimicos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

@@ -5,6 +5,9 @@
  */
 package daos;
 
+import baseDatos.ConexionMongoDB;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import dominio.Administrador;
 import interfaces.IAdministradorDAO;
 import java.util.List;
@@ -15,9 +18,26 @@ import java.util.List;
  */
 public class AdministradorDAO implements IAdministradorDAO {
 
+    private final ConexionMongoDB CONEXION;
+    private final MongoDatabase BASE_DATOS;
+    private final MongoCollection<Administrador> COLECCION;
+
+    public AdministradorDAO(ConexionMongoDB CONEXION) {
+        this.CONEXION = CONEXION;
+        this.BASE_DATOS = CONEXION.getBaseDatos();
+        this.COLECCION = BASE_DATOS.getCollection("administradores", Administrador.class);
+    }
+
     @Override
     public Administrador agregarAdministrador(Administrador administrador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            this.COLECCION.insertOne(administrador);
+            return administrador;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

@@ -30,6 +30,7 @@ public class Usuario {
 
     /**
      * Constructor de la clase Usuario.
+     *
      * @param nombre Nombre del usuario.
      * @param rfc RFC del usuario.
      * @param credencial Credenciales del usuario.
@@ -43,6 +44,7 @@ public class Usuario {
 
     /**
      * Constructor de la clase Usuario.
+     *
      * @param id Identificador único del usuario.
      * @param nombre Nombre del usuario.
      * @param rfc RFC del usuario.
@@ -57,6 +59,7 @@ public class Usuario {
 
     /**
      * Obtiene el identificador del usuario.
+     *
      * @return El identificador del usuario.
      */
     public ObjectId getId() {
@@ -65,6 +68,7 @@ public class Usuario {
 
     /**
      * Establece el identificador del usuario.
+     *
      * @param id El identificador del usuario.
      */
     public void setId(ObjectId id) {
@@ -73,6 +77,7 @@ public class Usuario {
 
     /**
      * Obtiene el nombre del usuario.
+     *
      * @return El nombre del usuario.
      */
     public String getNombre() {
@@ -81,6 +86,7 @@ public class Usuario {
 
     /**
      * Establece el nombre del usuario.
+     *
      * @param nombre El nombre del usuario.
      */
     public void setNombre(String nombre) {
@@ -89,6 +95,7 @@ public class Usuario {
 
     /**
      * Obtiene el RFC del usuario.
+     *
      * @return El RFC del usuario.
      */
     public String getRfc() {
@@ -97,6 +104,7 @@ public class Usuario {
 
     /**
      * Establece el RFC del usuario.
+     *
      * @param rfc El RFC del usuario.
      */
     public void setRfc(String rfc) {
@@ -105,6 +113,7 @@ public class Usuario {
 
     /**
      * Obtiene las credenciales del usuario.
+     *
      * @return Las credenciales del usuario.
      */
     public Credencial getCredencial() {
@@ -113,6 +122,7 @@ public class Usuario {
 
     /**
      * Establece las credenciales del usuario.
+     *
      * @param credencial Las credenciales del usuario.
      */
     public void setCredencial(Credencial credencial) {
