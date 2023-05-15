@@ -22,9 +22,18 @@ public class Usuario {
     private String rfc;
     private Credencial credencial;
 
+    /**
+     * Constructor sin argumentos de la clase Usuario.
+     */
     public Usuario() {
     }
 
+    /**
+     * Constructor de la clase Usuario.
+     * @param nombre Nombre del usuario.
+     * @param rfc RFC del usuario.
+     * @param credencial Credenciales del usuario.
+     */
     public Usuario(String nombre, String rfc, Credencial credencial) {
         this.nombre = nombre;
         this.rfc = rfc;
@@ -32,6 +41,13 @@ public class Usuario {
 
     }
 
+    /**
+     * Constructor de la clase Usuario.
+     * @param id Identificador único del usuario.
+     * @param nombre Nombre del usuario.
+     * @param rfc RFC del usuario.
+     * @param credencial Credenciales del usuario.
+     */
     public Usuario(ObjectId id, String nombre, String rfc, Credencial credencial) {
         this.id = id;
         this.nombre = nombre;
@@ -39,34 +55,66 @@ public class Usuario {
         this.credencial = credencial;
     }
 
+    /**
+     * Obtiene el identificador del usuario.
+     * @return El identificador del usuario.
+     */
     public ObjectId getId() {
         return id;
     }
 
+    /**
+     * Establece el identificador del usuario.
+     * @param id El identificador del usuario.
+     */
     public void setId(ObjectId id) {
         this.id = id;
     }
 
+    /**
+     * Obtiene el nombre del usuario.
+     * @return El nombre del usuario.
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Establece el nombre del usuario.
+     * @param nombre El nombre del usuario.
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Obtiene el RFC del usuario.
+     * @return El RFC del usuario.
+     */
     public String getRfc() {
         return rfc;
     }
 
+    /**
+     * Establece el RFC del usuario.
+     * @param rfc El RFC del usuario.
+     */
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
 
+    /**
+     * Obtiene las credenciales del usuario.
+     * @return Las credenciales del usuario.
+     */
     public Credencial getCredencial() {
         return credencial;
     }
 
+    /**
+     * Establece las credenciales del usuario.
+     * @param credencial Las credenciales del usuario.
+     */
     public void setCredencial(Credencial credencial) {
         this.credencial = credencial;
     }
