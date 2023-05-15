@@ -64,6 +64,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnRegistrarResiduoProductor = new javax.swing.JButton();
         btnSolicitarTrasladoProductor = new javax.swing.JButton();
         btnRegistrarTrasladoTransportista = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         btnSalir = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -99,6 +100,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnRegistrarTrasladoTransportista.setBackground(new java.awt.Color(51, 139, 133));
         btnRegistrarTrasladoTransportista.setText("Registrar Traslado");
 
+        jButton1.setBackground(new java.awt.Color(51, 139, 133));
+        jButton1.setText("Ver Traslado");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,6 +115,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVerTrasladosAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRegistrarResiduoProductor, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                     .addComponent(btnSolicitarTrasladoProductor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -123,7 +133,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnSolicitarTrasladoProductor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegistrarTrasladoTransportista, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         btnSalir.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -176,6 +188,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         frmRegistrarResiduos.setVisible(true);
     }//GEN-LAST:event_btnRegistrarResiduoProductorActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarResiduoProductor;
@@ -183,6 +199,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel btnSalir;
     private javax.swing.JButton btnSolicitarTrasladoProductor;
     private javax.swing.JButton btnVerTrasladosAdministrador;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

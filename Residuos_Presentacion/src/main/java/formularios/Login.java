@@ -36,6 +36,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -44,7 +45,6 @@ public class Login extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setMinimumSize(new java.awt.Dimension(650, 350));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(650, 350));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -152,6 +152,15 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 410, 270));
 
+        btnSalir.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exit.png"))); // NOI18N
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoLog.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 658, -1));
 
@@ -201,6 +210,11 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUsuarioFocusLost
 
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnSalirMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -238,6 +252,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
+    private javax.swing.JLabel btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
