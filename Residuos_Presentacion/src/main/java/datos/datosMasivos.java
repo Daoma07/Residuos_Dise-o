@@ -5,6 +5,8 @@
  */
 package datos;
 
+import fachada.INegocio;
+
 /**
  *
  * @author HP
@@ -16,7 +18,9 @@ public class datosMasivos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
+        INegocio negocio;
+
     }
 
 }
