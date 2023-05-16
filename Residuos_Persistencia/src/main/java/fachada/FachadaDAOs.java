@@ -27,7 +27,7 @@ import factory.FabricaDAO;
  *
  * @author HP
  */
-public class FachadaDatos implements IDatos {
+public class FachadaDAOs implements IDatos {
 
     private AdministradorDAO administradorDAO;
     private FleteDAO fleteDAO;
@@ -38,7 +38,7 @@ public class FachadaDatos implements IDatos {
     private TrasladoDAO trasladoDAO;
     private VehiculoDAO vehiculoDAO;
 
-    public FachadaDatos() {
+    public FachadaDAOs() {
         FabricaDAO fabrica = new FabricaDAO();
         this.administradorDAO = fabrica.crearAdministradorDAO();
         this.fleteDAO = fabrica.crearFleteDAO();
