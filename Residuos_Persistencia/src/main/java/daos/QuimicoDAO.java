@@ -5,6 +5,7 @@
 package daos;
 
 import baseDatos.ConexionMongoDB;
+import baseDatos.IConexionBD;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dominio.Quimico;
@@ -17,11 +18,11 @@ import java.util.List;
  */
 public class QuimicoDAO implements IQuimicoDAO {
 
-    private final ConexionMongoDB CONEXION;
+    private final IConexionBD CONEXION;
     private final MongoDatabase BASE_DATOS;
     private final MongoCollection<Quimico> COLECCION;
 
-    public QuimicoDAO(ConexionMongoDB CONEXION) {
+    public QuimicoDAO(IConexionBD CONEXION) {
         this.CONEXION = CONEXION;
         this.BASE_DATOS = CONEXION.getBaseDatos();
         this.COLECCION = BASE_DATOS.getCollection("quimicos", Quimico.class);

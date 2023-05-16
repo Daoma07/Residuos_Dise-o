@@ -13,8 +13,8 @@ import daos.ResiduoDAO;
 import daos.TransportistaDAO;
 import daos.TrasladoDAO;
 import daos.VehiculoDAO;
-import baseDatos.IConexionBD;
 import baseDatos.ConexionMongoDB;
+import baseDatos.IConexionBD;
 
 /**
  *
@@ -22,12 +22,10 @@ import baseDatos.ConexionMongoDB;
  */
 public class FabricaDAO implements IFabricaDAO {
 
-    private IConexionBD conexionDB;
-    private ConexionMongoDB conexion;
+    private IConexionBD conexion;
 
-    public FabricaDAO(IConexionBD conexionDB) {
-        this.conexionDB = new ConexionMongoDB();
-        this.conexion = (ConexionMongoDB) conexionDB.getBaseDatos();
+    public FabricaDAO() {
+        this.conexion = new ConexionMongoDB();
     }
 
     @Override

@@ -41,5 +41,7 @@ public class Productor extends Usuario {
     public Productor(ObjectId id, String nombre, String rfc, Credencial credencial) {
         super(id, nombre, rfc, credencial);
     }
+    
+    
 
 }

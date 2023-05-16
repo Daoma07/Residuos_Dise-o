@@ -5,6 +5,7 @@
 package daos;
 
 import baseDatos.ConexionMongoDB;
+import baseDatos.IConexionBD;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dominio.Flete;
@@ -19,11 +20,11 @@ import org.bson.types.ObjectId;
  */
 public class FleteDAO implements IFleteDAO {
 
-    private final ConexionMongoDB CONEXION;
+    private final IConexionBD CONEXION;
     private final MongoDatabase BASE_DATOS;
     private final MongoCollection<Flete> COLECCION;
 
-    public FleteDAO(ConexionMongoDB CONEXION) {
+    public FleteDAO(IConexionBD CONEXION) {
         this.CONEXION = CONEXION;
         this.BASE_DATOS = CONEXION.getBaseDatos();
         this.COLECCION = BASE_DATOS.getCollection("fletes", Flete.class);

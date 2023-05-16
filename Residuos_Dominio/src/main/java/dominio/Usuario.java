@@ -153,4 +153,9 @@ public class Usuario {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", rfc=" + rfc + ", credencial=" + credencial.getUsuario() + '}';
+    }
+
 }
