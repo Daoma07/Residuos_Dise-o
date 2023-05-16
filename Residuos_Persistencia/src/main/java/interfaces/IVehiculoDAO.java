@@ -15,10 +15,5 @@ import java.util.List;
 public interface IVehiculoDAO {
 
     public Vehiculo agregarVehiculo(Vehiculo vehiculo);
-    
-    public void eliminarVehiculo(int id);
-    
-    public Vehiculo editarVehiculo(Vehiculo vehiculo);
-    
-    public List<Vehiculo> consultarQuimicos();
+
 }

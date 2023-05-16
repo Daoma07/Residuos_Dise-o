@@ -15,10 +15,5 @@ import java.util.List;
 public interface IResiduoDAO {
 
     public Residuo agregarResiduo(Residuo residuo);
-    
-    public void eliminarResiduo(int id);
-    
-    public Residuo editarResiduo(Residuo residuo);
-    
-    public List<Residuo> consultarQuimicos();
+
 }

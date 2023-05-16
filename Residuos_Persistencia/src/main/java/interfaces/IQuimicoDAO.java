@@ -16,11 +16,4 @@ public interface IQuimicoDAO {
 
     public Quimico agregarQuimico(Quimico quimico);
 
-    public void eliminarQuimico(int id);
-    
-    public Quimico editarQuimico(Quimico quimico);
-    
-    public List<Quimico> consultarQuimicos();
-    
-    
 }

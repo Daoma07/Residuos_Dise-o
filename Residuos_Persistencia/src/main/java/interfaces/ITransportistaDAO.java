@@ -14,11 +14,6 @@ import java.util.List;
  */
 public interface ITransportistaDAO {
 
-    public Transportista agregarTransportista(Transportista transportista); 
-    
-    public void eliminarTransportista(int id); 
-    
-    public Transportista editarTransportista(Transportista transportista); 
-    
-    public List<Transportista> consultarQuimicos();
+    public Transportista agregarTransportista(Transportista transportista);
+
 }

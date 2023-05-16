@@ -23,7 +23,6 @@ import org.bson.Document;
  */
 public class AdministradorDAO implements IAdministradorDAO {
 
-    
     private final IConexionBD CONEXION;
     private final MongoDatabase BASE_DATOS;
     private final MongoCollection<Usuario> COLECCION;
@@ -64,21 +63,6 @@ public class AdministradorDAO implements IAdministradorDAO {
             e.printStackTrace();
             return null;
         }
-    }
-
-    @Override
-    public void eliminarAdministrador(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Administrador editarAdministrador(Administrador administrador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Administrador> consultarQuimicos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

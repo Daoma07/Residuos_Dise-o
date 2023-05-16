@@ -13,12 +13,7 @@ import java.util.List;
  * @author HP
  */
 public interface ITrasladoDAO {
- 
+
     public Traslado agregarTraslado(Traslado traslado);
-    
-    public void eliminarTraslado(int id);
-    
-    public Traslado editarTraslado(Traslado traslado);
-    
-    public List<Traslado> consultarQuimicos();
+
 }

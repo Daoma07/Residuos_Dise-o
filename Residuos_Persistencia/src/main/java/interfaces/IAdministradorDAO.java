@@ -16,9 +16,4 @@ public interface IAdministradorDAO {
 
     public Administrador agregarAdministrador(Administrador administrador);
 
-    public void eliminarAdministrador(int id);
-
-    public Administrador editarAdministrador(Administrador administrador);
-
-    public List<Administrador> consultarQuimicos();
 }

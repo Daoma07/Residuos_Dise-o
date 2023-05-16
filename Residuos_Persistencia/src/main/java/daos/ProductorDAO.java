@@ -4,14 +4,12 @@
  */
 package daos;
 
-import baseDatos.ConexionMongoDB;
 import baseDatos.IConexionBD;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dominio.Productor;
 import dominio.Usuario;
 import interfaces.IProductorDAO;
-import java.util.List;
 import javax.swing.JOptionPane;
 import org.bson.Document;
 
@@ -61,21 +59,6 @@ public class ProductorDAO implements IProductorDAO {
             e.printStackTrace();
             return null;
         }
-    }
-
-    @Override
-    public void eliminarProductor(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Productor editarProductor(Productor administrador) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Productor> consultarProductor() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

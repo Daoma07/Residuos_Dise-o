@@ -17,10 +17,5 @@ public interface IFleteDAO {
     
     public Flete agregarFlete(Flete flete);
     
-    public void eliminarFlete(ObjectId id);
-    
-    public Flete editarFlete(Flete flete);
-    
-    public List<Flete> consultarFlete();
-    
+
 }

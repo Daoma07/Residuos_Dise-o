@@ -42,24 +42,4 @@ public class FleteDAO implements IFleteDAO {
         }
     }
 
-    @Override
-    public void eliminarFlete(ObjectId id) {
-        try {
-            this.COLECCION.deleteOne(new Document("_id", id));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public Flete editarFlete(Flete flete) {
-        return null;
-    }
-
-    @Override
-    public List<Flete> consultarFlete() {
-        return null;
-    }
-
 }
