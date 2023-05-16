@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controles;
+package negocio;
 
 import dominio.Flete;
 import fachada.IDatos;
@@ -12,11 +12,11 @@ import fachada.IDatos;
  *
  * @author HP
  */
-public class FleteControlador {
+public class FleteNegocio {
 
     IDatos datos;
 
-    public FleteControlador(IDatos datos) {
+    public FleteNegocio(IDatos datos) {
         this.datos = datos;
     }
 

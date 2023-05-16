@@ -3,24 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controles;
+package negocio;
 
-import dominio.Residuo;
+import dominio.Productor;
 import fachada.IDatos;
 
 /**
  *
  * @author HP
  */
-public class ResiduoControlador {
+public class ProductorNegocio {
 
     IDatos datos;
 
-    public ResiduoControlador(IDatos datos) {
+    public ProductorNegocio(IDatos datos) {
         this.datos = datos;
     }
 
-    public Residuo agregarResiduo(Residuo residuo) {
-        return datos.agregarResiduo(residuo);
+    public Productor agregarProductor(Productor productor) {
+        return datos.agregarProductor(productor);
     }
+
 }

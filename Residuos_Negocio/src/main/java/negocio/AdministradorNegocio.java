@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fachada;
+package negocio;
 
 import dominio.Administrador;
 import fachada.IDatos;
@@ -12,11 +12,11 @@ import fachada.IDatos;
  *
  * @author HP
  */
-public class FachadaControladores {
+public class AdministradorNegocio {
 
     IDatos datos;
 
-    public FachadaControladores(IDatos datos) {
+    public AdministradorNegocio(IDatos datos) {
         this.datos = datos;
     }
 
