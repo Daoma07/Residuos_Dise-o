@@ -65,4 +65,28 @@ public class AdministradorDAO implements IAdministradorDAO {
         }
     }
 
+    @Override
+    public Usuario encontrarUsuario(String usuario, String contrasenia) {
+        try {
+            // Construir el filtro para buscar el usuario por el nombre de usuario y contraseña
+            Document filtro = new Document();
+            filtro.append("credencial.usuario", usuario);
+            filtro.append("credencial.contrasenia", contrasenia);
+
+            // Realizar la búsqueda del usuario en la base de datos
+            Usuario usuarioEncontrado = this.COLECCION.find(filtro).first();
+            if (usuarioEncontrado != null) {
+                return usuarioEncontrado;
+            }
+            // Devolver el usuario encontrado (puede ser null si no se encuentra)
+            JOptionPane.showMessageDialog(null, "El usuario o la contraseña no son correctos", "Error", JOptionPane.ERROR_MESSAGE);
+            return null;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
 }

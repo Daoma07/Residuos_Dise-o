@@ -12,6 +12,7 @@ import dominio.Quimico;
 import dominio.Residuo;
 import dominio.Transportista;
 import dominio.Traslado;
+import dominio.Usuario;
 import dominio.Vehiculo;
 import fachada.IDatos;
 import factory.FabricaNegocio;
@@ -54,6 +55,11 @@ public class FachadaNegocio implements INegocio {
     @Override
     public Administrador agregarAdministrador(Administrador administrador) {
         return administradorNegocio.agregarAdministrador(administrador);
+    }
+
+    @Override
+    public Usuario encontrarUsuario(String usuario, String contrasenia) {
+        return administradorNegocio.encontrarUsuario(usuario, contrasenia);
     }
 
     @Override

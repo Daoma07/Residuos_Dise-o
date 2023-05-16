@@ -12,6 +12,7 @@ import dominio.Quimico;
 import dominio.Residuo;
 import dominio.Transportista;
 import dominio.Traslado;
+import dominio.Usuario;
 import dominio.Vehiculo;
 
 /**
@@ -22,6 +23,8 @@ public interface INegocio {
 
     //Administrador
     public Administrador agregarAdministrador(Administrador administrador);
+
+    public Usuario encontrarUsuario(String usuario, String contrasenia);
 
     //Flete
     public Flete agregarFlete(Flete flete);

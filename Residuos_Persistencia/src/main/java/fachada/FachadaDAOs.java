@@ -20,6 +20,7 @@ import dominio.Quimico;
 import dominio.Residuo;
 import dominio.Transportista;
 import dominio.Traslado;
+import dominio.Usuario;
 import dominio.Vehiculo;
 import factory.FabricaDAO;
 
@@ -54,6 +55,11 @@ public class FachadaDAOs implements IDatos {
     @Override
     public Administrador agregarAdministrador(Administrador administrador) {
         return administradorDAO.agregarAdministrador(administrador);
+    }
+
+    @Override
+    public Usuario encontrarUsuario(String usuario, String contrasenia) {
+        return administradorDAO.encontrarUsuario(usuario, contrasenia);
     }
 
     //Flete

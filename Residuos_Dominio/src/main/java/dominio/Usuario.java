@@ -20,7 +20,7 @@ public class Usuario {
     private ObjectId id;
     private String nombre;
     private String rfc;
-    private Credencial credencial;
+    public Credencial credencial;
 
     /**
      * Constructor sin argumentos de la clase Usuario.
@@ -39,7 +39,6 @@ public class Usuario {
         this.nombre = nombre;
         this.rfc = rfc;
         this.credencial = credencial;
-
     }
 
     /**

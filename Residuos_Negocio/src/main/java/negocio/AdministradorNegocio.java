@@ -6,6 +6,7 @@
 package negocio;
 
 import dominio.Administrador;
+import dominio.Usuario;
 import fachada.IDatos;
 
 /**
@@ -24,4 +25,7 @@ public class AdministradorNegocio {
         return datos.agregarAdministrador(administrador);
     }
 
+    public Usuario encontrarUsuario(String usuario, String contrasenia) {
+        return datos.encontrarUsuario(usuario, contrasenia);
+    }
 }

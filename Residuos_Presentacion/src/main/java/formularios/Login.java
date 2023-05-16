@@ -5,7 +5,12 @@
  */
 package formularios;
 
+import dominio.Usuario;
+import fachada.FachadaNegocio;
+import fachada.INegocio;
+import factory.FabricaFormularios;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,11 +18,35 @@ import java.awt.Color;
  */
 public class Login extends javax.swing.JFrame {
 
+    private INegocio negocio;
+    private FabricaFormularios fabrica;
+
+    public Login() {
+        initComponents();
+    }
+
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login(INegocio negocio) {
         initComponents();
+        this.negocio = negocio;
+        fabrica = new FabricaFormularios();
+    }
+
+    public void validarUsuario() {
+        Usuario usuarioNuevo = new Usuario();
+        String usuario = this.txtUsuario.getText();
+        String contrasenia = this.txtContrasenia.getText();
+        usuarioNuevo = negocio.encontrarUsuario(usuario, contrasenia);
+
+        if (usuarioNuevo != null) {
+            this.dispose();
+            fabrica.crearFormularioPrincipal().setVisible(true);
+        } else {
+            this.txtUsuario.setText("Usuario");
+            this.txtContrasenia.setText("111111111111");
+        }
     }
 
     /**
@@ -43,7 +72,7 @@ public class Login extends javax.swing.JFrame {
         setTitle("Login");
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(java.awt.Color.white);
-        setMinimumSize(new java.awt.Dimension(650, 350));
+        setMinimumSize(new java.awt.Dimension(652, 353));
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -103,6 +132,11 @@ public class Login extends javax.swing.JFrame {
         btnIngresar.setText("Ingresar");
         btnIngresar.setBorder(null);
         btnIngresar.setBorderPainted(false);
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel4.setText("Iniciar Sesión");
@@ -159,10 +193,13 @@ public class Login extends javax.swing.JFrame {
                 btnSalirMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoLog.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 658, -1));
+        jLabel1.setMaximumSize(new java.awt.Dimension(650, 353));
+        jLabel1.setMinimumSize(new java.awt.Dimension(652, 353));
+        jLabel1.setPreferredSize(new java.awt.Dimension(652, 353));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -178,7 +215,7 @@ public class Login extends javax.swing.JFrame {
             this.txtContrasenia.setText("");
             this.txtContrasenia.setForeground(Color.black);
         }
-        
+
     }//GEN-LAST:event_txtContraseniaFocusGained
 
     private void txtContraseniaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContraseniaFocusLost
@@ -199,7 +236,7 @@ public class Login extends javax.swing.JFrame {
             this.txtUsuario.setText("");
             this.txtUsuario.setForeground(Color.black);
         }
-        
+
     }//GEN-LAST:event_txtUsuarioFocusGained
 
     private void txtUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsuarioFocusLost
@@ -215,40 +252,12 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+        this.validarUsuario();
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;

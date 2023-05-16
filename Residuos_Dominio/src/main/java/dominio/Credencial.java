@@ -17,6 +17,9 @@ public class Credencial {
     private String usuario;
     private String contrasenia;
 
+    public Credencial() {
+    }
+
     /**
      * Constructor de la clase Credencial que recibe el nombre de usuario y
      * contraseña.

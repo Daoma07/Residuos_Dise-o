@@ -10,6 +10,7 @@ import daos.ProductorDAO;
 import dominio.Administrador;
 import dominio.Credencial;
 import dominio.Productor;
+import dominio.Usuario;
 import factory.FabricaDAO;
 
 /**
@@ -31,13 +32,18 @@ public class NewMain {
 //        Productor productorNuevo = new Productor("DAniel", "asdd", credencial);
 //
 //        productor.agregarProductor(productorNuevo);
-
         AdministradorDAO administrador = fabrica.crearAdministradorDAO();
+//
+//        Credencial credencial2 = new Credencial("daniel", "1234");
+//        Administrador administradorNuevo = new Administrador("DAniel", "asdasd", credencial2);
+//
+//        administrador.agregarAdministrador(administradorNuevo);
 
-        Credencial credencial2 = new Credencial("danielas", "12341");
-        Administrador administradorNuevo = new Administrador("DAniel", "asdasd", credencial2);
+        Usuario ad = administrador.encontrarUsuario("daniel", "1234");
 
-        administrador.agregarAdministrador(administradorNuevo);
+        if (ad != null) {
+            System.out.println("goasd");
+        }
     }
 
 }

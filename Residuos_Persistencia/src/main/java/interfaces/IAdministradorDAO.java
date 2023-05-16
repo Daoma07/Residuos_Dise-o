@@ -6,6 +6,7 @@
 package interfaces;
 
 import dominio.Administrador;
+import dominio.Usuario;
 import java.util.List;
 
 /**
@@ -16,4 +17,5 @@ public interface IAdministradorDAO {
 
     public Administrador agregarAdministrador(Administrador administrador);
 
+    public Usuario encontrarUsuario(String usuario, String contrasenia);
 }
