@@ -14,6 +14,15 @@ import dominio.Transportista;
 import dominio.Traslado;
 import dominio.Vehiculo;
 import fachada.IDatos;
+import factory.FabricaNegocio;
+import negocio.AdministradorNegocio;
+import negocio.FleteNegocio;
+import negocio.ProductorNegocio;
+import negocio.QuimicoNegocio;
+import negocio.ResiduoNegocio;
+import negocio.TransportistaNegocio;
+import negocio.TrasladoNegocio;
+import negocio.VehiculoNegocio;
 
 /**
  *
@@ -21,46 +30,65 @@ import fachada.IDatos;
  */
 public class FachadaNegocio implements INegocio {
 
-    
-    
+    private AdministradorNegocio administradorNegocio;
+    private FleteNegocio fleteNegocio;
+    private ProductorNegocio productorNegocio;
+    private QuimicoNegocio quimicoNegocio;
+    private ResiduoNegocio residuoNegocio;
+    private TransportistaNegocio transportistaNegocio;
+    private TrasladoNegocio trasladoNegocio;
+    private VehiculoNegocio vehiculoNegocio;
+
+    public FachadaNegocio() {
+        FabricaNegocio fabrica = new FabricaNegocio();
+        this.administradorNegocio = fabrica.crearAdministradorNegocio();
+        this.fleteNegocio = fabrica.crearFleteNegocio();
+        this.productorNegocio = fabrica.crearProductorNegocio();
+        this.quimicoNegocio = fabrica.crearQuimicoNegocio();
+        this.residuoNegocio = fabrica.crearResiduoNegocio();
+        this.transportistaNegocio = fabrica.crearTransportistaNegocio();
+        this.trasladoNegocio = fabrica.crearTrasladoNegocio();
+        this.vehiculoNegocio = fabrica.crearVehiculoNegocio();
+    }
+
     @Override
     public Administrador agregarAdministrador(Administrador administrador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return administradorNegocio.agregarAdministrador(administrador);
     }
 
     @Override
     public Flete agregarFlete(Flete flete) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return fleteNegocio.agregarFlete(flete);
     }
 
     @Override
     public Productor agregarProductor(Productor productor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return productorNegocio.agregarProductor(productor);
     }
 
     @Override
     public Quimico agregarQuimico(Quimico quimico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return quimicoNegocio.agregarQuimico(quimico);
     }
 
     @Override
     public Residuo agregarResiduo(Residuo residuo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return residuoNegocio.agregarResiduo(residuo);
     }
 
     @Override
     public Transportista agregarTransportista(Transportista transportista) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return transportistaNegocio.agregarTransportista(transportista);
     }
 
     @Override
     public Traslado agregarTraslado(Traslado traslado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return trasladoNegocio.agregarTraslado(traslado);
     }
 
     @Override
     public Vehiculo agregarVehiculo(Vehiculo vehiculo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return vehiculoNegocio.agregarVehiculo(vehiculo);
     }
 
 }

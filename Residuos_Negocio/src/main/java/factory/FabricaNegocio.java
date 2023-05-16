@@ -24,7 +24,7 @@ public class FabricaNegocio implements IFabricaNegocio {
 
     private IDatos datos;
 
-    public FabricaNegocio(IDatos datos) {
+    public FabricaNegocio() {
         this.datos = new FachadaDAOs();
     }
 
