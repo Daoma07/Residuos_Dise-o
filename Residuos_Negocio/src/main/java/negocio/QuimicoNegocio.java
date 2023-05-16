@@ -7,6 +7,7 @@ package negocio;
 
 import dominio.Quimico;
 import fachada.IDatos;
+import java.util.List;
 
 /**
  *
@@ -22,5 +23,9 @@ public class QuimicoNegocio {
 
     public Quimico agregarQuimico(Quimico quimico) {
         return datos.agregarQuimico(quimico);
+    }
+
+    public List<Quimico> consutlarQuimicos() {
+        return datos.consutlarQuimicos();
     }
 }

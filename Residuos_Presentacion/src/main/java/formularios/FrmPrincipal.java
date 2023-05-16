@@ -12,7 +12,7 @@ import factory.FabricaFormularios;
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
 public class FrmPrincipal extends javax.swing.JFrame {
-
+    
     private INegocio negocio;
     private FabricaFormularios fabrica;
 
@@ -160,8 +160,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnRegistrarResiduoProductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarResiduoProductorActionPerformed
         // TODO add your handling code here:
-        FrmRegistrarResiduos frmRegistrarResiduos = new FrmRegistrarResiduos();
-        frmRegistrarResiduos.setVisible(true);
+        fabrica.crearFormularioRegistrarResiduos().setVisible(true);
     }//GEN-LAST:event_btnRegistrarResiduoProductorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

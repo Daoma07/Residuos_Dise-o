@@ -16,8 +16,12 @@ public class Quimico {
     private ObjectId id;
     private String nombre;
 
+    public Quimico() {
+    }
+
     /**
      * Crea una instancia de Quimico con el nombre especificado.
+     *
      * @param nombre El nombre del químico.
      */
     public Quimico(String nombre) {
@@ -26,6 +30,7 @@ public class Quimico {
 
     /**
      * Crea una instancia de Quimico con el ID y el nombre especificados.
+     *
      * @param id El ID del químico.
      * @param nombre El nombre del químico.
      */
@@ -61,8 +66,9 @@ public class Quimico {
         return nombre;
     }
 
-        /**
+    /**
      * Establece el nombre del químico.
+     *
      * @param nombre El nombre del químico.
      */
     public void setNombre(String nombre) {

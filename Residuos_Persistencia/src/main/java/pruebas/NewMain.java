@@ -38,12 +38,12 @@ public class NewMain {
 //        Administrador administradorNuevo = new Administrador("DAniel", "asdasd", credencial2);
 //
 //        administrador.agregarAdministrador(administradorNuevo);
-
-        Usuario ad = administrador.encontrarUsuario("daniel", "1234");
-
-        if (ad != null) {
-            System.out.println("goasd");
-        }
+//
+//        Usuario ad = administrador.encontrarUsuario("daniel", "1234");
+//
+//        if (ad != null) {
+//            System.out.println("goasd");
+//        }
     }
 
 }

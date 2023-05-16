@@ -23,6 +23,7 @@ import dominio.Traslado;
 import dominio.Usuario;
 import dominio.Vehiculo;
 import factory.FabricaDAO;
+import java.util.List;
 
 /**
  *
@@ -78,6 +79,11 @@ public class FachadaDAOs implements IDatos {
     @Override
     public Quimico agregarQuimico(Quimico quimico) {
         return quimicoDAO.agregarQuimico(quimico);
+    }
+
+    @Override
+    public List<Quimico> consutlarQuimicos() {
+        return quimicoDAO.consutlarQuimicos();
     }
 
     //Residuo

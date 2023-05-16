@@ -7,10 +7,14 @@ package daos;
 import baseDatos.ConexionMongoDB;
 import baseDatos.IConexionBD;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import dominio.Quimico;
 import interfaces.IQuimicoDAO;
+import java.util.ArrayList;
 import java.util.List;
+import org.bson.Document;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -38,6 +42,29 @@ public class QuimicoDAO implements IQuimicoDAO {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public List<Quimico> consutlarQuimicos() {
+
+        List<Quimico> quimicos = new ArrayList<>();
+
+        // Realizar la búsqueda de todos los químicos en la base de datos
+        try (MongoCursor<Quimico> cursor = this.COLECCION.find().iterator()) {
+            while (cursor.hasNext()) {
+                Quimico document = cursor.next();
+                ObjectId id = document.getId();
+                String nombre = document.getNombre();
+
+                Quimico quimico = new Quimico(id, nombre);
+                quimicos.add(quimico);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        return quimicos;
     }
 
 }

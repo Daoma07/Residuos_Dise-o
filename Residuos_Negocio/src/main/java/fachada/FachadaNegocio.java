@@ -16,6 +16,7 @@ import dominio.Usuario;
 import dominio.Vehiculo;
 import fachada.IDatos;
 import factory.FabricaNegocio;
+import java.util.List;
 import negocio.AdministradorNegocio;
 import negocio.FleteNegocio;
 import negocio.ProductorNegocio;
@@ -75,6 +76,11 @@ public class FachadaNegocio implements INegocio {
     @Override
     public Quimico agregarQuimico(Quimico quimico) {
         return quimicoNegocio.agregarQuimico(quimico);
+    }
+
+    @Override
+    public List<Quimico> consutlarQuimicos() {
+        return quimicoNegocio.consutlarQuimicos();
     }
 
     @Override

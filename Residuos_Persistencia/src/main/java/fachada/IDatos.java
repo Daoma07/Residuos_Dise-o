@@ -14,6 +14,7 @@ import dominio.Transportista;
 import dominio.Traslado;
 import dominio.Usuario;
 import dominio.Vehiculo;
+import java.util.List;
 
 /**
  *
@@ -34,6 +35,8 @@ public interface IDatos {
 
     //Quimico
     public Quimico agregarQuimico(Quimico quimico);
+
+    public List<Quimico> consutlarQuimicos();
 
     //Residuo
     public Residuo agregarResiduo(Residuo residuo);

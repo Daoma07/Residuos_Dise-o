@@ -4,17 +4,46 @@
  */
 package formularios;
 
+import dominio.Quimico;
+import fachada.INegocio;
+import factory.FabricaFormularios;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
 public class FrmRegistrarResiduos extends javax.swing.JFrame {
 
+    private INegocio negocio;
+    private FabricaFormularios fabrica;
+    private List<Quimico> quimicosSeleccionados;
+
     /**
      * Creates new form FrmRegistrarResiduos
      */
-    public FrmRegistrarResiduos() {
+    public FrmRegistrarResiduos(INegocio negocio) {
         initComponents();
+        this.negocio = negocio;
+        fabrica = new FabricaFormularios();
+        this.quimicosSeleccionados = new ArrayList<>();
+        this.llenarTablaQuimo();
+    }
+
+    public void llenarTablaQuimo() {
+        List<Quimico> listaQuimicos = negocio.consutlarQuimicos();
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblQuimicos.getModel();
+        //Limpia tabla anterior
+        modeloTabla.setRowCount(0);
+        listaQuimicos.forEach(quimico -> {
+            Object[] fila = {
+                quimico.getNombre()
+            };
+            modeloTabla.addRow(fila);
+
+        });
     }
 
     /**
@@ -60,6 +89,11 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblQuimicos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblQuimicosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblQuimicos);
@@ -114,9 +148,7 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel3)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(jLabel2)))
+                                    .addComponent(jLabel2))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtCodigo)
@@ -181,40 +213,11 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistrarResiduos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistrarResiduos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistrarResiduos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmRegistrarResiduos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void tblQuimicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblQuimicosMouseClicked
+        // TODO add your handling code here:
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmRegistrarResiduos().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_tblQuimicosMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;

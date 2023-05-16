@@ -16,4 +16,5 @@ public interface IQuimicoDAO {
 
     public Quimico agregarQuimico(Quimico quimico);
 
+    public List<Quimico> consutlarQuimicos();
 }
