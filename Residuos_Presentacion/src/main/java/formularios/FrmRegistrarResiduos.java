@@ -7,6 +7,7 @@ package formularios;
 import dominio.Productor;
 import dominio.Quimico;
 import dominio.Residuo;
+import dominio.Usuario;
 import fachada.INegocio;
 import factory.FabricaFormularios;
 import java.util.ArrayList;
@@ -25,15 +26,15 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
     private FabricaFormularios fabrica;
     private List<Quimico> quimicosSeleccionados;
     private List<Quimico> listaQuimicos;
-    private Productor productor;
+    private Usuario usuario;
 
     /**
      * Creates new form FrmRegistrarResiduos
      */
-    public FrmRegistrarResiduos(INegocio negocio, Productor productor) {
+    public FrmRegistrarResiduos(INegocio negocio, Usuario usuario) {
         initComponents();
         this.negocio = negocio;
-        this.productor = productor;
+        this.usuario = usuario;
         fabrica = new FabricaFormularios();
         quimicosSeleccionados = new ArrayList<>();
         listaQuimicos = negocio.consutlarQuimicos();
@@ -152,6 +153,11 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblQuimicosSeleccionados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblQuimicosSeleccionadosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblQuimicosSeleccionados);
 
         jLabel5.setText("Quimicos Seleccionados");
@@ -252,7 +258,7 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
 
     public void guardarResiduo() {
         Residuo residuo = new Residuo(Integer.valueOf(this.txtCodigo.getText()), this.txtNombre.getText(),
-                listaQuimicos, productor);
+                quimicosSeleccionados, usuario);
 
         residuo = negocio.agregarResiduo(residuo);
         if (residuo.getId() != null) {
@@ -282,6 +288,21 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
         this.llenarTablaQuimico();
 
     }
+
+    public void seleccionarQuimicoSeleccionados() {
+        int fila = this.tblQuimicosSeleccionados.getSelectedRow();
+        Quimico quimicoSeleccionado = new Quimico((String) this.tblQuimicosSeleccionados.getValueAt(fila, 0));
+
+        this.quimicosSeleccionados.remove(quimicoSeleccionado);
+
+        this.listaQuimicos.add(quimicoSeleccionado);
+
+        this.llenarTablaQuimicoSeleccionado();
+        this.llenarTablaQuimico();
+
+    }
+
+
     private void tblQuimicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblQuimicosMouseClicked
         // TODO add your handling code here:
         this.seleccionarQuimico();
@@ -290,6 +311,7 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
 
     private void txtCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyPressed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_txtCodigoKeyPressed
 
     private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
@@ -303,6 +325,11 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.guardarResiduo();
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void tblQuimicosSeleccionadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblQuimicosSeleccionadosMouseClicked
+        // TODO add your handling code here:
+        this.seleccionarQuimicoSeleccionados();
+    }//GEN-LAST:event_tblQuimicosSeleccionadosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

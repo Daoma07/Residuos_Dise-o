@@ -163,7 +163,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", rfc=" + rfc + ", credencial=" + credencial.getUsuario() + '}';
+        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", rfc=" + rfc + ", credencial=" + credencial + ", tipo=" + tipo + '}';
     }
 
 }

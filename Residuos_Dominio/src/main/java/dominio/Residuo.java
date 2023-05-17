@@ -18,7 +18,7 @@ public class Residuo {
     private int codigo;
     private String nombre;
     private List<Quimico> quimicos;
-    private Productor productor;
+    private Usuario productor;
 
     /**
      * Constructor sin argumentos.
@@ -32,13 +32,13 @@ public class Residuo {
      * @param codigo El código del residuo.
      * @param nombre El nombre del residuo.
      * @param quimicos La lista de químicos asociados al residuo.
-     * @param traslado El traslado del residuo.
+     * @param productor El traslado del residuo.
      */
-    public Residuo(int codigo, String nombre, List<Quimico> quimicos, Productor productor) {
+    public Residuo(int codigo, String nombre, List<Quimico> quimicos, Usuario usuario) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.quimicos = quimicos;
-        this.productor = productor;
+        this.productor = usuario;
     }
 
     /**
@@ -50,12 +50,12 @@ public class Residuo {
      * @param quimicos La lista de químicos asociados al residuo.
      * @param traslado El traslado del residuo.
      */
-    public Residuo(ObjectId id, int codigo, String nombre, List<Quimico> quimicos, Productor productor) {
+    public Residuo(ObjectId id, int codigo, String nombre, List<Quimico> quimicos, Usuario usaurio) {
         this.id = id;
         this.codigo = codigo;
         this.nombre = nombre;
         this.quimicos = quimicos;
-        this.productor = productor;
+        this.productor = usaurio;
     }
 
     /**
@@ -130,11 +130,11 @@ public class Residuo {
         this.quimicos = quimicos;
     }
 
-    public Productor getProductor() {
+    public Usuario getProductor() {
         return productor;
     }
 
-    public void setProductor(Productor productor) {
+    public void setProductor(Usuario productor) {
         this.productor = productor;
     }
 

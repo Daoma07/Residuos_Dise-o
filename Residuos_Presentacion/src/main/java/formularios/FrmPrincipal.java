@@ -11,6 +11,7 @@ import dominio.Usuario;
 import fachada.INegocio;
 import factory.FabricaFormularios;
 import dominio.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,41 +21,47 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private INegocio negocio;
     private FabricaFormularios fabrica;
-    //private Usuario usuario;
-    private Productor productor;
-    private Administrador administrador;
-    private Transportista transportista;
+    private Usuario usuario;
 
     /**
      * Creates new form FrmPrincipal
      */
     public FrmPrincipal(INegocio negocio, Usuario usuario) {
         initComponents();
-        this.negocio = negocio;
-        // this.usuario = usuario;
         fabrica = new FabricaFormularios();
-
+        this.negocio = negocio;
+        this.usuario = usuario;
         this.esconderBotones();
-        this.validarUsuario(usuario);
+        this.validarUsuario();
+        // JOptionPane.showMessageDialog(null, usuario.toString());
     }
 
     public void esconderBotones() {
+
         this.btnRegistrarResiduoProductor.setVisible(false);
         this.btnSolicitarTrasladoProductor.setVisible(false);
         this.btnRegistrarTrasladoTransportista.setVisible(false);
         this.btnVerTrasladosAdministrador.setVisible(false);
     }
 
-    public void validarUsuario(Usuario usuario) {
-        if (usuario instanceof Productor) {
-            this.productor = (Productor) usuario;
-            this.btnRegistrarResiduoProductor.setVisible(true);
-            this.btnSolicitarTrasladoProductor.setVisible(true);
-        } else if (usuario instanceof Administrador) {
-            this.administrador = (Administrador) usuario;
-        } else if (usuario instanceof Transportista) {
-            this.transportista = (Transportista) usuario;
+    public void validarUsuario() {
+
+        if (null != usuario.getTipo()) {
+            switch (usuario.getTipo()) {
+                case "productor":
+                    // JOptionPane.showMessageDialog(null, usuario.toString());
+                    this.btnRegistrarResiduoProductor.setVisible(true);
+                    this.btnSolicitarTrasladoProductor.setVisible(true);
+                    break;
+                case "administrador":
+                    break;
+                case "transportista":
+                    break;
+                default:
+                    break;
+            }
         }
+
     }
 
     /**
@@ -186,7 +193,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void btnRegistrarResiduoProductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarResiduoProductorActionPerformed
         // TODO add your handling code here:
 
-        fabrica.crearFormularioRegistrarResiduos(productor).setVisible(true);
+        fabrica.crearFormularioRegistrarResiduos(usuario).setVisible(true);
     }//GEN-LAST:event_btnRegistrarResiduoProductorActionPerformed
 
     private void btnVerTrasladosAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTrasladosAdministradorActionPerformed

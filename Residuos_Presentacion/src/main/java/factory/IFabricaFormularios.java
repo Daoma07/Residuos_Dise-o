@@ -26,7 +26,7 @@ public abstract class IFabricaFormularios {
 
     public abstract FrmProductor crearFormularioProductor();
 
-    public abstract FrmRegistrarResiduos crearFormularioRegistrarResiduos(Productor productor);
+    public abstract FrmRegistrarResiduos crearFormularioRegistrarResiduos(Usuario usuario);
 
     public abstract FrmRegistroTraslados crearFormularioRegistroTraslados();
 

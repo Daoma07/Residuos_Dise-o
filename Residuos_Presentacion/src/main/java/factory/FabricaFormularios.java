@@ -41,8 +41,8 @@ public class FabricaFormularios extends IFabricaFormularios {
     }
 
     @Override
-    public FrmRegistrarResiduos crearFormularioRegistrarResiduos(Productor productor) {
-        return new FrmRegistrarResiduos(negocio, productor);
+    public FrmRegistrarResiduos crearFormularioRegistrarResiduos(Usuario usuario) {
+        return new FrmRegistrarResiduos(negocio, usuario);
     }
 
     @Override

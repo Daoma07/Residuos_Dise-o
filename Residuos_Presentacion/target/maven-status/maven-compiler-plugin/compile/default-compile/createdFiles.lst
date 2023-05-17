@@ -3,6 +3,7 @@ formularios\FrmRegistrarResiduos.class
 formularios\FrmRegistrarResiduos$1.class
 main\Main.class
 formularios\Login$5.class
+formularios\FrmRegistrarResiduos$5.class
 formularios\Login$2.class
 formularios\FrmSolicitudesTraslados$1.class
 formularios\FrmRegistrarResiduos$4.class
@@ -27,6 +28,7 @@ formularios\FrmRegistroTraslados$2.class
 formularios\FrmSolicitudes$4.class
 formularios\FrmPrincipal$4.class
 formularios\FrmSolicitudesTraslados$6.class
+datos\datosMasivos.class
 formularios\FrmSolicitudesTraslados$2.class
 formularios\FrmVehiculos$4.class
 factory\FabricaFormularios.class
@@ -41,9 +43,9 @@ formularios\Login.class
 formularios\Login$4.class
 formularios\FrmRegistroTraslados.class
 formularios\Login$1.class
-formularios\FrmPrincipal$5.class
 formularios\FrmProductor$1.class
 formularios\FrmSolicitudes$7.class
+formularios\FrmRegistrarResiduos$6.class
 formularios\FrmPrincipal$2.class
 formularios\FrmVehiculos.class
 formularios\FrmRegistrarResiduos$3.class
