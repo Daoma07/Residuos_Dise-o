@@ -41,6 +41,8 @@ public interface IDatos {
     //Residuo
     public Residuo agregarResiduo(Residuo residuo);
 
+    public List<Residuo> consultarResiduos();
+
     //Transportista
     public Transportista agregarTransportista(Transportista transportista);
 
