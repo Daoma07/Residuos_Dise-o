@@ -36,8 +36,8 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
         this.llenarTablaResiduos();
     }
 
-    /* Metodo que llena la tabla tblQuimicosDisponibles, conforme al residuo
-    sleeccionado.
+    /** Metodo que llena la tabla tblQuimicosDisponibles, conforme al residuo
+     * sleeccionado.
     */
     public void llenarTablaResiduoQuimicos(Residuo residuo){
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblQuimicosDisponibles.getModel();
@@ -51,6 +51,8 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
         });
     }
     
+    /** Metodo que llena la tabla tblSolicitudesTraslado con los residuos almacenados.
+    */
     public void llenarTablaResiduos(){
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblSolicitudesTraslado.getModel();
         // Limpia tabla anterior
@@ -66,13 +68,15 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
         });
     }
 
+    /** Metodo que llena la tabla tblSeleccionSolicitudes conforme a los residuos 
+     * seleccionados.
+     */
     public void llenarTablaQuimicoSeleccionado() {
         List<Residuo> listaResiduos = residuosSeleccionados;
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblSeleccionSolicitudes.getModel();
         //Limpia tabla anterior
         modeloTabla.setRowCount(0);
         listaResiduos.forEach(residuo -> {
-
             Object[] fila = {
                 residuo.getNombre()
             };
@@ -81,18 +85,21 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
         });
     }
     
+    /** Metodo que 
+     * 
+    */
     public void seleccionarResiduo() {
-        int fila = this.tblSolicitudesTraslado.getSelectedRow();
-        int id = (int)tblSolicitudesTraslado.getValueAt(fila, 0);
-        llenarTablaResiduoQuimicos(residuo);
-        Residuo residuoSeleccionado = new Residuo();
-
-        this.quimicosSeleccionados.add(quimicoSeleccionado);
-
-        this.listaQuimicos.remove(quimicoSeleccionado);
-
-        this.llenarTablaQuimicoSeleccionado();
-        this.llenarTablaQuimico();
+//        int fila = this.tblSolicitudesTraslado.getSelectedRow();
+//        int id = (int)tblSolicitudesTraslado.getValueAt(fila, 0);
+//        llenarTablaResiduoQuimicos(residuo);
+//        Residuo residuoSeleccionado = new Residuo();
+//
+//        this.quimicosSeleccionados.add(quimicoSeleccionado);
+//
+//        this.listaQuimicos.remove(quimicoSeleccionado);
+//
+//        this.llenarTablaQuimicoSeleccionado();
+//        this.llenarTablaQuimico();
 
     }
     
