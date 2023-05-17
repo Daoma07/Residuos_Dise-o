@@ -19,6 +19,8 @@ public class Residuo {
     private String nombre;
     private List<Quimico> quimicos;
     private Usuario productor;
+    private float cantidad;
+    private Unidad unidad;
 
     /**
      * Constructor sin argumentos.
@@ -136,6 +138,42 @@ public class Residuo {
 
     public void setProductor(Usuario productor) {
         this.productor = productor;
+    }
+
+    /**
+     * Obtiene la cantidad de residuos a trasladar.
+     *
+     * @return La cantidad de residuos a trasladar.
+     */
+    public float getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * Establece la cantidad de residuos a trasladar.
+     *
+     * @param cantidad La cantidad de residuos a trasladar.
+     */
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    /**
+     * Obtiene la unidad de medida de los residuos.
+     *
+     * @return La unidad de medida de los residuos.
+     */
+    public Unidad getUnidad() {
+        return unidad;
+    }
+
+    /**
+     * Establece la unidad de medida de los residuos.
+     *
+     * @param unidad La unidad de medida de los residuos.
+     */
+    public void setUnidad(Unidad unidad) {
+        this.unidad = unidad;
     }
 
 }

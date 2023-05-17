@@ -16,8 +16,7 @@ import org.bson.types.ObjectId;
 public class Traslado {
 
     private ObjectId id;
-    private float cantidad;
-    private Unidad unidad;
+
     private boolean envioParcial;
     private List<Residuo> residuo;
     private List<Flete> fletes;
@@ -34,17 +33,13 @@ public class Traslado {
      * Crea una instancia de la clase Traslado con los argumentos
      * proporcionados.
      *
-     * @param cantidad La cantidad de residuos a trasladar.
-     * @param unidad La unidad de medida de los residuos.
      * @param envioParcial Indica si el envío es parcial o no.
      * @param residuo La lista de residuos a trasladar.
      * @param fletes La lista de fletes asociados al traslado.
      * @param fechaSolicitada La fecha solicitada para el traslado.
      */
-    public Traslado(float cantidad, Unidad unidad, boolean envioParcial, List<Residuo> residuo,
+    public Traslado(boolean envioParcial, List<Residuo> residuo,
             List<Flete> fletes, Calendar fechaSolicitada, Tratamiento tratamiento) {
-        this.cantidad = cantidad;
-        this.unidad = unidad;
         this.envioParcial = envioParcial;
         this.residuo = residuo;
         this.fletes = fletes;
@@ -57,19 +52,15 @@ public class Traslado {
      * proporcionados.
      *
      * @param id El identificador del traslado.
-     * @param cantidad La cantidad de residuos a trasladar.
-     * @param unidad La unidad de medida de los residuos.
      * @param envioParcial Indica si el envío es parcial o no.
      * @param residuo La lista de residuos a trasladar.
      * @param fletes La lista de fletes asociados al traslado.
      * @param fechaSolicitada La fecha solicitada para el traslado.
      */
-    public Traslado(ObjectId id, float cantidad, Unidad unidad, boolean envioParcial,
+    public Traslado(ObjectId id, boolean envioParcial,
             List<Residuo> residuo, List<Flete> fletes, Calendar fechaSolicitada,
             Tratamiento tratamiento) {
         this.id = id;
-        this.cantidad = cantidad;
-        this.unidad = unidad;
         this.envioParcial = envioParcial;
         this.residuo = residuo;
         this.fletes = fletes;
@@ -93,42 +84,6 @@ public class Traslado {
      */
     public void setId(ObjectId id) {
         this.id = id;
-    }
-
-    /**
-     * Obtiene la cantidad de residuos a trasladar.
-     *
-     * @return La cantidad de residuos a trasladar.
-     */
-    public float getCantidad() {
-        return cantidad;
-    }
-
-    /**
-     * Establece la cantidad de residuos a trasladar.
-     *
-     * @param cantidad La cantidad de residuos a trasladar.
-     */
-    public void setCantidad(float cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    /**
-     * Obtiene la unidad de medida de los residuos.
-     *
-     * @return La unidad de medida de los residuos.
-     */
-    public Unidad getUnidad() {
-        return unidad;
-    }
-
-    /**
-     * Establece la unidad de medida de los residuos.
-     *
-     * @param unidad La unidad de medida de los residuos.
-     */
-    public void setUnidad(Unidad unidad) {
-        this.unidad = unidad;
     }
 
     /**

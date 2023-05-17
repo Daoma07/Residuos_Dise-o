@@ -40,6 +40,25 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Metodo que llena la tabla tblQuimicosDisponibles, conforme al residuo
+     * sleeccionado.
+     */
+    public void llenarTablaResiduoQuimicos(Residuo residuo) {
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblQuimicosDisponibles.getModel();
+        // Limpia tabla anterior
+        modeloTabla.setRowCount(0);
+        residuo.getQuimicos().forEach(quimico -> {
+            Object[] fila = {
+                quimico.getNombre()
+            };
+            modeloTabla.addRow(fila);
+        });
+    }
+
+    /**
+>>>>>>> f0f06ff40cbecfb08a3337d7d410fd00adb66e27
      * Metodo que llena la tabla tblSolicitudesTraslado con los residuos
      * almacenados.
      */
@@ -51,8 +70,12 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
             Object[] fila = {
                 residuo.getId(),
                 residuo.getCodigo(),
+<<<<<<< HEAD
                 residuo.getNombre()
             };
+=======
+                residuo.getNombre(),};
+>>>>>>> f0f06ff40cbecfb08a3337d7d410fd00adb66e27
             modeloTabla.addRow(fila);
         });
     }
@@ -78,6 +101,7 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
     }
 
     /**
+<<<<<<< HEAD
      * Metodo que llena la tabla tblQuimicosDisponibles, conforme al residuo
      * sleeccionado.
      */
@@ -111,6 +135,26 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
 //        this.llenarTablaResiduos();
     }
 
+=======
+     * Metodo que
+     *
+     */
+    public void seleccionarResiduo() {
+//        int fila = this.tblSolicitudesTraslado.getSelectedRow();
+//        int id = (int)tblSolicitudesTraslado.getValueAt(fila, 0);
+//        llenarTablaResiduoQuimicos(residuo);
+//        Residuo residuoSeleccionado = new Residuo();
+//
+//        this.quimicosSeleccionados.add(quimicoSeleccionado);
+//
+//        this.listaQuimicos.remove(quimicoSeleccionado);
+//
+//        this.llenarTablaQuimicoSeleccionado();
+//        this.llenarTablaQuimico();
+
+    }
+
+>>>>>>> f0f06ff40cbecfb08a3337d7d410fd00adb66e27
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
