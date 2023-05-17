@@ -8,10 +8,12 @@ import baseDatos.ConexionMongoDB;
 import baseDatos.IConexionBD;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import dominio.Administrador;
 import dominio.Residuo;
 import interfaces.IResiduoDAO;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,7 +34,23 @@ public class ResiduoDAO implements IResiduoDAO {
     @Override
     public Residuo agregarResiduo(Residuo residuo) {
         try {
-            this.COLECCION.insertOne(residuo);
+
+            // Verifica si ya existe un residuo con el mismo código, nombre o listas de químicos
+            boolean existeResiduo = this.COLECCION.countDocuments(
+                    Filters.or(
+                            Filters.eq("codigo", residuo.getCodigo()),
+                            Filters.eq("nombre", residuo.getNombre()),
+                            Filters.eq("quimicos", residuo.getQuimicos())
+                    )) > 0;
+
+            if (existeResiduo) {
+
+                JOptionPane.showMessageDialog(null, "Ya existe un residuo con el mismo\n"
+                        + "código, nombre o listas de químicos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                this.COLECCION.insertOne(residuo);
+                JOptionPane.showMessageDialog(null, "Residuo insertado exitosamente");
+            }
             return residuo;
         } catch (Exception e) {
             System.out.println(e.getMessage());

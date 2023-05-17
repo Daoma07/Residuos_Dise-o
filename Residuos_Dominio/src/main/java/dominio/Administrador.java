@@ -15,15 +15,13 @@ import org.bson.types.ObjectId;
  */
 public class Administrador extends Usuario {
 
-    private final String tipo;
-
     /**
      * Constructor predeterminado de la clase Administrador. Crea una instancia
      * de Administrador sin inicializar sus atributos.
      */
     public Administrador() {
-        super();
-        this.tipo = "administrador";
+        setTipo("administrador");
+
     }
 
     /**
@@ -36,7 +34,7 @@ public class Administrador extends Usuario {
      */
     public Administrador(String nombre, String rfc, Credencial credencial) {
         super(nombre, rfc, credencial);
-        this.tipo = "administrador";
+        setTipo("administrador");
 
     }
 
@@ -51,7 +49,7 @@ public class Administrador extends Usuario {
      */
     public Administrador(ObjectId id, String nombre, String rfc, Credencial credencial) {
         super(id, nombre, rfc, credencial);
-        this.tipo = "administrador";
+        setTipo("administrador");
     }
 
 }

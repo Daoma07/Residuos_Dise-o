@@ -21,29 +21,32 @@ public class Transportista extends Usuario {
      * Constructor vacío de la clase Transportista.
      */
     public Transportista() {
+        setTipo("transportista");
     }
 
     /**
      * Constructor de la clase Transportista con parámetros.
      *
-     * @param nombre      El nombre del transportista.
-     * @param rfc         El RFC del transportista.
-     * @param credencial  La credencial del transportista.
+     * @param nombre El nombre del transportista.
+     * @param rfc El RFC del transportista.
+     * @param credencial La credencial del transportista.
      */
     public Transportista(String nombre, String rfc, Credencial credencial) {
         super(nombre, rfc, credencial);
+        setTipo("transportista");
     }
 
     /**
      * Constructor de la clase Transportista con parámetros.
      *
-     * @param id          El ID del transportista.
-     * @param nombre      El nombre del transportista.
-     * @param rfc         El RFC del transportista.
-     * @param credencial  La credencial del transportista.
+     * @param id El ID del transportista.
+     * @param nombre El nombre del transportista.
+     * @param rfc El RFC del transportista.
+     * @param credencial La credencial del transportista.
      */
     public Transportista(ObjectId id, String nombre, String rfc, Credencial credencial) {
         super(id, nombre, rfc, credencial);
+        setTipo("transportista");
     }
 
     /**

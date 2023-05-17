@@ -18,8 +18,6 @@ public class Residuo {
     private int codigo;
     private String nombre;
     private List<Quimico> quimicos;
-    private Tratamiento tratamiento;
-    private Traslado traslado;
     private Productor productor;
 
     /**
@@ -34,41 +32,35 @@ public class Residuo {
      * @param codigo El código del residuo.
      * @param nombre El nombre del residuo.
      * @param quimicos La lista de químicos asociados al residuo.
-     * @param tratamiento El tratamiento del residuo.
      * @param traslado El traslado del residuo.
-     * @param productor El productor del residuo.
      */
-    public Residuo(int codigo, String nombre, List<Quimico> quimicos, Tratamiento tratamiento, Traslado traslado, Productor productor) {
+    public Residuo(int codigo, String nombre, List<Quimico> quimicos, Productor productor) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.quimicos = quimicos;
-        this.tratamiento = tratamiento;
-        this.traslado = traslado;
         this.productor = productor;
     }
 
     /**
      * Constructor con identificador.
+     *
      * @param id El identificador del residuo.
      * @param codigo El código del residuo.
      * @param nombre El nombre del residuo.
      * @param quimicos La lista de químicos asociados al residuo.
-     * @param tratamiento El tratamiento del residuo.
      * @param traslado El traslado del residuo.
-     * @param productor El productor del residuo.
      */
-    public Residuo(ObjectId id, int codigo, String nombre, List<Quimico> quimicos, Tratamiento tratamiento, Traslado traslado, Productor productor) {
+    public Residuo(ObjectId id, int codigo, String nombre, List<Quimico> quimicos, Productor productor) {
         this.id = id;
         this.codigo = codigo;
         this.nombre = nombre;
         this.quimicos = quimicos;
-        this.tratamiento = tratamiento;
-        this.traslado = traslado;
         this.productor = productor;
     }
 
     /**
      * Obtiene el identificador del residuo.
+     *
      * @return El identificador del residuo.
      */
     public ObjectId getId() {
@@ -138,56 +130,10 @@ public class Residuo {
         this.quimicos = quimicos;
     }
 
-    /**
-     * Devuelve el tratamiento.
-     *
-     * @return El tratamiento.
-     */
-    public Tratamiento getTratamiento() {
-        return tratamiento;
-    }
-
-    /**
-     * Establece el tratamiento.
-     *
-     * @param tratamiento El tratamiento a establecer.
-     */
-    public void setTratamiento(Tratamiento tratamiento) {
-        this.tratamiento = tratamiento;
-    }
-
-    /**
-     * Devuelve el traslado.
-     *
-     * @return El traslado.
-     */
-    public Traslado getTraslado() {
-        return traslado;
-    }
-
-    /**
-     * Establece el traslado.
-     *
-     * @param traslado El traslado a establecer.
-     */
-    public void setTraslado(Traslado traslado) {
-        this.traslado = traslado;
-    }
-
-    /**
-     * Devuelve el productor.
-     *
-     * @return El productor.
-     */
     public Productor getProductor() {
         return productor;
     }
 
-    /**
-     * Establece el productor.
-     *
-     * @param productor El productor a establecer.
-     */
     public void setProductor(Productor productor) {
         this.productor = productor;
     }

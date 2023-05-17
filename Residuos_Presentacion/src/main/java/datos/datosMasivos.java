@@ -5,7 +5,11 @@
  */
 package datos;
 
+import dominio.Administrador;
+import dominio.Credencial;
+import dominio.Productor;
 import dominio.Quimico;
+import dominio.Transportista;
 import fachada.FachadaNegocio;
 import fachada.INegocio;
 import java.util.List;
@@ -25,6 +29,13 @@ public class datosMasivos {
 
         INegocio negocio = new FachadaNegocio();
 
+        //usuarios 
+        Administrador administrador = new Administrador("Carlos alberto", "asd", new Credencial("carlos", "1234"));
+        negocio.agregarAdministrador(administrador);
+        Transportista transportista = new Transportista("Daniel Alameda", "asdasd", new Credencial("daniel", "1234"));
+        negocio.agregarTransportista(transportista);
+        Productor productor = new Productor("Abel Ernesto", "asdasdaxc", new Credencial("abel", "1234"));
+        negocio.agregarProductor(productor);
         //Quimicos
         List<Quimico> quimicos = new ArrayList<>();
 

@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package main;
+
 import factory.FabricaFormularios;
+
 /**
  *
  * @author HP
@@ -18,7 +20,7 @@ public class Main {
         // TODO code application logic here
         FabricaFormularios fabrica = new FabricaFormularios();
         fabrica.crearLogin().setVisible(true);
-        
+
     }
-    
+
 }

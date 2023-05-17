@@ -21,12 +21,12 @@ public class ProductorDAO implements IProductorDAO {
 
     private final IConexionBD CONEXION;
     private final MongoDatabase BASE_DATOS;
-    private final MongoCollection<Usuario> COLECCION;
+    private final MongoCollection<Productor> COLECCION;
 
     public ProductorDAO(IConexionBD CONEXION) {
         this.CONEXION = CONEXION;
         this.BASE_DATOS = CONEXION.getBaseDatos();
-        this.COLECCION = BASE_DATOS.getCollection("usuarios", Usuario.class);
+        this.COLECCION = BASE_DATOS.getCollection("usuarios", Productor.class);
     }
 
     @Override

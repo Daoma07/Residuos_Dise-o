@@ -76,6 +76,7 @@ public class AdministradorDAO implements IAdministradorDAO {
             // Realizar la búsqueda del usuario en la base de datos
             Usuario usuarioEncontrado = this.COLECCION.find(filtro).first();
             if (usuarioEncontrado != null) {
+
                 return usuarioEncontrado;
             }
             // Devolver el usuario encontrado (puede ser null si no se encuentra)

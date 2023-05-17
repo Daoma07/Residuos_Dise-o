@@ -58,11 +58,11 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Codigo", "Nombre", "Tratamiento"
+                "ID", "Codigo", "Nombre"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -176,7 +176,6 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(200, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSalir)
                         .addGap(18, 18, 18))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -199,9 +198,8 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
                                 .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(302, 302, 302)
-                                .addComponent(btnSolicitar)
-                                .addGap(295, 295, 295)))
-                        .addGap(241, 241, 241))))
+                                .addComponent(btnSolicitar)))
+                        .addGap(266, 266, 266))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

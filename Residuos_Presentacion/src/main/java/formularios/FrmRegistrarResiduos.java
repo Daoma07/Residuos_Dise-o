@@ -4,11 +4,15 @@
  */
 package formularios;
 
+import dominio.Productor;
 import dominio.Quimico;
+import dominio.Residuo;
 import fachada.INegocio;
 import factory.FabricaFormularios;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,24 +24,43 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
     private INegocio negocio;
     private FabricaFormularios fabrica;
     private List<Quimico> quimicosSeleccionados;
+    private List<Quimico> listaQuimicos;
+    private Productor productor;
 
     /**
      * Creates new form FrmRegistrarResiduos
      */
-    public FrmRegistrarResiduos(INegocio negocio) {
+    public FrmRegistrarResiduos(INegocio negocio, Productor productor) {
         initComponents();
         this.negocio = negocio;
+        this.productor = productor;
         fabrica = new FabricaFormularios();
-        this.quimicosSeleccionados = new ArrayList<>();
-        this.llenarTablaQuimo();
+        quimicosSeleccionados = new ArrayList<>();
+        listaQuimicos = negocio.consutlarQuimicos();
+        this.llenarTablaQuimico();
+
     }
 
-    public void llenarTablaQuimo() {
-        List<Quimico> listaQuimicos = negocio.consutlarQuimicos();
+    public void llenarTablaQuimico() {
+
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblQuimicos.getModel();
+        // Limpia tabla anterior
+        modeloTabla.setRowCount(0);
+        listaQuimicos.forEach(quimico -> {
+            Object[] fila = {
+                quimico.getNombre()
+            };
+            modeloTabla.addRow(fila);
+        });
+    }
+
+    public void llenarTablaQuimicoSeleccionado() {
+        List<Quimico> listaQuimicos = quimicosSeleccionados;
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblQuimicosSeleccionados.getModel();
         //Limpia tabla anterior
         modeloTabla.setRowCount(0);
         listaQuimicos.forEach(quimico -> {
+
             Object[] fila = {
                 quimico.getNombre()
             };
@@ -98,6 +121,15 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblQuimicos);
 
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
+            }
+        });
+
         jLabel2.setText("Código: ");
 
         jLabel3.setText("Nombre:");
@@ -125,6 +157,11 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
         jLabel5.setText("Quimicos Seleccionados");
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnSalir.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exit.png"))); // NOI18N
@@ -213,10 +250,59 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirMouseClicked
 
+    public void guardarResiduo() {
+        Residuo residuo = new Residuo(Integer.valueOf(this.txtCodigo.getText()), this.txtNombre.getText(),
+                listaQuimicos, productor);
+
+        residuo = negocio.agregarResiduo(residuo);
+        if (residuo.getId() != null) {
+            this.vaciarFormulario();
+        }
+    }
+
+    public void vaciarFormulario() {
+        this.txtNombre.setText("");
+        this.txtCodigo.setText("");
+        this.listaQuimicos.clear();
+        this.quimicosSeleccionados.clear();
+        listaQuimicos = negocio.consutlarQuimicos();
+        this.llenarTablaQuimico();
+        this.llenarTablaQuimicoSeleccionado();
+    }
+
+    public void seleccionarQuimico() {
+        int fila = this.tblQuimicos.getSelectedRow();
+        Quimico quimicoSeleccionado = new Quimico((String) this.tblQuimicos.getValueAt(fila, 0));
+
+        this.quimicosSeleccionados.add(quimicoSeleccionado);
+
+        this.listaQuimicos.remove(quimicoSeleccionado);
+
+        this.llenarTablaQuimicoSeleccionado();
+        this.llenarTablaQuimico();
+
+    }
     private void tblQuimicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblQuimicosMouseClicked
         // TODO add your handling code here:
+        this.seleccionarQuimico();
 
     }//GEN-LAST:event_tblQuimicosMouseClicked
+
+    private void txtCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoKeyPressed
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        // TODO add your handling code here:
+        if (this.txtCodigo.getText().length() > 6) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        this.guardarResiduo();
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -234,4 +320,5 @@ public class FrmRegistrarResiduos extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
 }

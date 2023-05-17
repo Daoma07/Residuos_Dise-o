@@ -5,6 +5,8 @@
  */
 package factory;
 
+import dominio.Productor;
+import dominio.Usuario;
 import formularios.FrmPrincipal;
 import formularios.FrmProductor;
 import formularios.FrmRegistrarResiduos;
@@ -20,11 +22,11 @@ import formularios.Login;
  */
 public abstract class IFabricaFormularios {
 
-    public abstract FrmPrincipal crearFormularioPrincipal();
+    public abstract FrmPrincipal crearFormularioPrincipal(Usuario usuario);
 
     public abstract FrmProductor crearFormularioProductor();
 
-    public abstract FrmRegistrarResiduos crearFormularioRegistrarResiduos();
+    public abstract FrmRegistrarResiduos crearFormularioRegistrarResiduos(Productor productor);
 
     public abstract FrmRegistroTraslados crearFormularioRegistroTraslados();
 

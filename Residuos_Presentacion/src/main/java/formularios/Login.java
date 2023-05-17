@@ -5,6 +5,9 @@
  */
 package formularios;
 
+import dominio.Administrador;
+import dominio.Productor;
+import dominio.Transportista;
 import dominio.Usuario;
 import fachada.FachadaNegocio;
 import fachada.INegocio;
@@ -42,7 +45,7 @@ public class Login extends javax.swing.JFrame {
 
         if (usuarioNuevo != null) {
             this.dispose();
-            fabrica.crearFormularioPrincipal().setVisible(true);
+            fabrica.crearFormularioPrincipal(usuarioNuevo).setVisible(true);
         } else {
             this.txtUsuario.setText("Usuario");
             this.txtContrasenia.setText("111111111111");

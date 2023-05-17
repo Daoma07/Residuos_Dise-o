@@ -32,12 +32,15 @@ public class NewMain {
 //        Productor productorNuevo = new Productor("DAniel", "asdd", credencial);
 //
 //        productor.agregarProductor(productorNuevo);
-        AdministradorDAO administrador = fabrica.crearAdministradorDAO();
+        //   AdministradorDAO administrador = fabrica.crearAdministradorDAO();
+        ProductorDAO productor = fabrica.crearProductorDAO();
 //
-//        Credencial credencial2 = new Credencial("daniel", "1234");
-//        Administrador administradorNuevo = new Administrador("DAniel", "asdasd", credencial2);
-//
-//        administrador.agregarAdministrador(administradorNuevo);
+        Credencial credencial111 = new Credencial("daniell", "12344");
+        //  Administrador administradorNuevo = new Administrador("DAniel", "asdasd", credencial2);
+        Productor administradorNuevo = new Productor("DAniel", "asdaasdasdsd", credencial111);
+
+        // administrador.agregarAdministrador(administradorNuevo);
+        productor.agregarProductor(administradorNuevo);
 //
 //        Usuario ad = administrador.encontrarUsuario("daniel", "1234");
 //

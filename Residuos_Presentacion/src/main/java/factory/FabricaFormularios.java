@@ -5,6 +5,8 @@
  */
 package factory;
 
+import dominio.Productor;
+import dominio.Usuario;
 import fachada.INegocio;
 import fachada.FachadaNegocio;
 import formularios.FrmPrincipal;
@@ -29,8 +31,8 @@ public class FabricaFormularios extends IFabricaFormularios {
     }
 
     @Override
-    public FrmPrincipal crearFormularioPrincipal() {
-        return new FrmPrincipal(negocio);
+    public FrmPrincipal crearFormularioPrincipal(Usuario usuario) {
+        return new FrmPrincipal(negocio, usuario);
     }
 
     @Override
@@ -39,8 +41,8 @@ public class FabricaFormularios extends IFabricaFormularios {
     }
 
     @Override
-    public FrmRegistrarResiduos crearFormularioRegistrarResiduos() {
-        return new FrmRegistrarResiduos(negocio);
+    public FrmRegistrarResiduos crearFormularioRegistrarResiduos(Productor productor) {
+        return new FrmRegistrarResiduos(negocio, productor);
     }
 
     @Override

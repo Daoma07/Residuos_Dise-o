@@ -20,7 +20,8 @@ public class Usuario {
     private ObjectId id;
     private String nombre;
     private String rfc;
-    public Credencial credencial;
+    private Credencial credencial;
+    private String tipo;
 
     /**
      * Constructor sin argumentos de la clase Usuario.
@@ -126,6 +127,14 @@ public class Usuario {
      */
     public void setCredencial(Credencial credencial) {
         this.credencial = credencial;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
