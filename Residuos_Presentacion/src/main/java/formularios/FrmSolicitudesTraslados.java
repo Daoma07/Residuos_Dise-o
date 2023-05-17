@@ -4,19 +4,95 @@
  */
 package formularios;
 
+import dominio.Residuo;
+import dominio.Usuario;
+import fachada.INegocio;
+import factory.FabricaFormularios;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
 public class FrmSolicitudesTraslados extends javax.swing.JFrame {
 
+    private INegocio negocio;
+    private FabricaFormularios fabrica;
+    private List<Residuo> residuosSeleccionados;
+    private List<Residuo> listaResiduos;
+    private Usuario usuario;
+    
     /**
      * Creates new form FrmSolicitudesTraslados
      */
     public FrmSolicitudesTraslados() {
         initComponents();
+        fabrica = new FabricaFormularios();
+        this.negocio = negocio;
+        residuosSeleccionados = new ArrayList<>();
+        listaResiduos = negocio.consultarResiduos();
+        this.llenarTablaResiduos();
     }
 
+    public void llenarTablaResiduoQuimicos(Residuo residuo){
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblQuimicosDisponibles.getModel();
+        // Limpia tabla anterior
+        modeloTabla.setRowCount(0);
+        residuo.getQuimicos().forEach(quimico -> {
+            Object[] fila = {
+                quimico.getNombre()
+            };
+            modeloTabla.addRow(fila);
+        });
+    }
+    
+    public void llenarTablaResiduos(){
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblSolicitudesTraslado.getModel();
+        // Limpia tabla anterior
+        modeloTabla.setRowCount(0);
+        listaResiduos.forEach(residuo -> {
+            Object[] fila = {
+                residuo.getId(),
+                residuo.getCodigo(),
+                residuo.getNombre(),
+                
+            };
+            modeloTabla.addRow(fila);
+        });
+    }
+
+    public void llenarTablaQuimicoSeleccionado() {
+        List<Residuo> listaResiduos = residuosSeleccionados;
+        DefaultTableModel modeloTabla = (DefaultTableModel) this.tblSeleccionSolicitudes.getModel();
+        //Limpia tabla anterior
+        modeloTabla.setRowCount(0);
+        listaResiduos.forEach(residuo -> {
+
+            Object[] fila = {
+                residuo.getNombre()
+            };
+            modeloTabla.addRow(fila);
+
+        });
+    }
+    
+    public void seleccionarResiduo() {
+        int fila = this.tblSolicitudesTraslado.getSelectedRow();
+        int id = (int)tblSolicitudesTraslado.getValueAt(fila, 0);
+        llenarTablaResiduoQuimicos(residuo);
+        Residuo residuoSeleccionado = new Residuo();
+
+        this.quimicosSeleccionados.add(quimicoSeleccionado);
+
+        this.listaQuimicos.remove(quimicoSeleccionado);
+
+        this.llenarTablaQuimicoSeleccionado();
+        this.llenarTablaQuimico();
+
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +121,7 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tblQuimicosSeleccionados = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Solicitudes Traslados");
@@ -150,6 +227,9 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel6.setText("Quimicos");
 
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel7.setText("Quimicos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,20 +250,21 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSalir)
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(200, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSalir)
-                        .addGap(18, 18, 18))))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel6)))
+                        .addContainerGap(200, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(235, 235, 235))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -199,7 +280,10 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(302, 302, 302)
                                 .addComponent(btnSolicitar)))
-                        .addGap(266, 266, 266))))
+                        .addGap(266, 266, 266))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(244, 244, 244))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +293,9 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(btnSalir))
                 .addGap(23, 23, 23)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,7 +303,7 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel3)
                 .addGap(2, 2, 2)
-                .addComponent(jLabel6)
+                .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -290,6 +376,7 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

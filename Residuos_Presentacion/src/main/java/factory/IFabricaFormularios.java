@@ -32,7 +32,7 @@ public abstract class IFabricaFormularios {
 
     public abstract FrmSolicitudes crearFormularioSolicitudes();
 
-    public abstract FrmSolicitudesTraslados crearFormularioSolicitudesTraslados();
+    public abstract FrmSolicitudesTraslados crearFormularioSolicitudesTraslados(Usuario usuario);
 
     public abstract FrmVehiculos crearFormularioVehiculos();
 
