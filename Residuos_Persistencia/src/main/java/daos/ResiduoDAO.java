@@ -7,13 +7,16 @@ package daos;
 import baseDatos.ConexionMongoDB;
 import baseDatos.IConexionBD;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import dominio.Administrador;
 import dominio.Residuo;
 import interfaces.IResiduoDAO;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -52,6 +55,30 @@ public class ResiduoDAO implements IResiduoDAO {
                 JOptionPane.showMessageDialog(null, "Residuo insertado exitosamente");
             }
             return residuo;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<Residuo> consultarResiduos() {
+        try {
+
+            List<Residuo> residuos = new ArrayList<>();
+            MongoCursor<Residuo> cursor = COLECCION.find().iterator();
+
+            try {
+                while (cursor.hasNext()) {
+                    Residuo residuo = cursor.next();
+                    residuos.add(residuo);
+                }
+            } finally {
+                cursor.close();
+            }
+
+            return residuos;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();

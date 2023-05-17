@@ -22,15 +22,17 @@ public class Traslado {
     private List<Residuo> residuo;
     private List<Flete> fletes;
     private Calendar fechaSolicitada;
+    private Tratamiento tratamiento;
 
-     /**
+    /**
      * Crea una instancia de la clase Traslado sin argumentos.
      */
     public Traslado() {
     }
 
     /**
-     * Crea una instancia de la clase Traslado con los argumentos proporcionados.
+     * Crea una instancia de la clase Traslado con los argumentos
+     * proporcionados.
      *
      * @param cantidad La cantidad de residuos a trasladar.
      * @param unidad La unidad de medida de los residuos.
@@ -39,17 +41,20 @@ public class Traslado {
      * @param fletes La lista de fletes asociados al traslado.
      * @param fechaSolicitada La fecha solicitada para el traslado.
      */
-    public Traslado(float cantidad, Unidad unidad, boolean envioParcial, List<Residuo> residuo, List<Flete> fletes, Calendar fechaSolicitada) {
+    public Traslado(float cantidad, Unidad unidad, boolean envioParcial, List<Residuo> residuo,
+            List<Flete> fletes, Calendar fechaSolicitada, Tratamiento tratamiento) {
         this.cantidad = cantidad;
         this.unidad = unidad;
         this.envioParcial = envioParcial;
         this.residuo = residuo;
         this.fletes = fletes;
         this.fechaSolicitada = fechaSolicitada;
+        this.tratamiento = tratamiento;
     }
 
     /**
-     * Crea una instancia de la clase Traslado con los argumentos proporcionados.
+     * Crea una instancia de la clase Traslado con los argumentos
+     * proporcionados.
      *
      * @param id El identificador del traslado.
      * @param cantidad La cantidad de residuos a trasladar.
@@ -59,7 +64,9 @@ public class Traslado {
      * @param fletes La lista de fletes asociados al traslado.
      * @param fechaSolicitada La fecha solicitada para el traslado.
      */
-    public Traslado(ObjectId id, float cantidad, Unidad unidad, boolean envioParcial, List<Residuo> residuo, List<Flete> fletes, Calendar fechaSolicitada) {
+    public Traslado(ObjectId id, float cantidad, Unidad unidad, boolean envioParcial,
+            List<Residuo> residuo, List<Flete> fletes, Calendar fechaSolicitada,
+            Tratamiento tratamiento) {
         this.id = id;
         this.cantidad = cantidad;
         this.unidad = unidad;
@@ -67,6 +74,7 @@ public class Traslado {
         this.residuo = residuo;
         this.fletes = fletes;
         this.fechaSolicitada = fechaSolicitada;
+        this.tratamiento = tratamiento;
     }
 
     /**
@@ -122,7 +130,7 @@ public class Traslado {
     public void setUnidad(Unidad unidad) {
         this.unidad = unidad;
     }
-    
+
     /**
      * Verifica si el traslado es parcial o no.
      *
@@ -159,7 +167,7 @@ public class Traslado {
     public void setResiduo(List<Residuo> residuo) {
         this.residuo = residuo;
     }
-    
+
     /**
      * Obtiene la lista de fletes asociados al traslado.
      *
@@ -195,7 +203,5 @@ public class Traslado {
     public void setFechaSolicitada(Calendar fechaSolicitada) {
         this.fechaSolicitada = fechaSolicitada;
     }
-    
-    
 
 }

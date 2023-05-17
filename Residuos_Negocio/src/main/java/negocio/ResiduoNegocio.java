@@ -7,6 +7,7 @@ package negocio;
 
 import dominio.Residuo;
 import fachada.IDatos;
+import java.util.List;
 
 /**
  *
@@ -22,5 +23,9 @@ public class ResiduoNegocio {
 
     public Residuo agregarResiduo(Residuo residuo) {
         return datos.agregarResiduo(residuo);
+    }
+
+    public List<Residuo> consultarResiduos() {
+        return datos.consultarResiduos();
     }
 }

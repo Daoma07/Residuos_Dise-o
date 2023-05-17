@@ -89,6 +89,11 @@ public class FachadaNegocio implements INegocio {
     }
 
     @Override
+    public List<Residuo> consultarResiduos() {
+        return residuoNegocio.consultarResiduos();
+    }
+
+    @Override
     public Transportista agregarTransportista(Transportista transportista) {
         return transportistaNegocio.agregarTransportista(transportista);
     }

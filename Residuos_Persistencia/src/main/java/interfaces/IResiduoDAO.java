@@ -16,4 +16,6 @@ public interface IResiduoDAO {
 
     public Residuo agregarResiduo(Residuo residuo);
 
+    public List<Residuo> consultarResiduos();
+
 }
