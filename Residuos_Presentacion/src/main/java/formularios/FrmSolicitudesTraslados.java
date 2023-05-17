@@ -36,6 +36,9 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
         this.llenarTablaResiduos();
     }
 
+    /* Metodo que llena la tabla tblQuimicosDisponibles, conforme al residuo
+    sleeccionado.
+    */
     public void llenarTablaResiduoQuimicos(Residuo residuo){
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblQuimicosDisponibles.getModel();
         // Limpia tabla anterior
