@@ -28,4 +28,8 @@ public class ResiduoNegocio {
     public List<Residuo> consultarResiduos() {
         return datos.consultarResiduos();
     }
+
+    public Residuo buscarResiduo(String id) {
+        return datos.buscarResiduo(id);
+    }
 }

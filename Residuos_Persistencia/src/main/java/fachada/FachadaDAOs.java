@@ -97,6 +97,11 @@ public class FachadaDAOs implements IDatos {
         return residuoDAO.consultarResiduos();
     }
 
+    @Override
+    public Residuo buscarResiduo(String id) {
+        return residuoDAO.buscarResiduo(id);
+    }
+
     //Transportista
     @Override
     public Transportista agregarTransportista(Transportista transportista) {

@@ -7,6 +7,7 @@ package interfaces;
 
 import dominio.Residuo;
 import java.util.List;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -17,5 +18,7 @@ public interface IResiduoDAO {
     public Residuo agregarResiduo(Residuo residuo);
 
     public List<Residuo> consultarResiduos();
+
+    public Residuo buscarResiduo(String id);
 
 }

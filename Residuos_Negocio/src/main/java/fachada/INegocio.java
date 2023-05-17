@@ -43,6 +43,8 @@ public interface INegocio {
 
     public List<Residuo> consultarResiduos();
 
+    public Residuo buscarResiduo(String id);
+
     //Transportista
     public Transportista agregarTransportista(Transportista transportista);
 
