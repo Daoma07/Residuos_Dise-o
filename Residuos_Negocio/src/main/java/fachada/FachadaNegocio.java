@@ -95,7 +95,7 @@ public class FachadaNegocio implements INegocio {
 
     @Override
     public Residuo buscarResiduo(String id) {
-        return .residuoNegocio.buscarResiduo(id);
+        return residuoNegocio.buscarResiduo(id);
     }
 
     @Override
