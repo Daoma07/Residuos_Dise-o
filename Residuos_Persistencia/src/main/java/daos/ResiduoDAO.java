@@ -86,4 +86,16 @@ public class ResiduoDAO implements IResiduoDAO {
         }
     }
 
+    @Override
+    public Residuo buscarResiduo(String id) {
+        try {
+            ObjectId objectId = new ObjectId(id);
+            return COLECCION.find(Filters.eq("_id", objectId)).first();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
