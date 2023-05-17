@@ -28,6 +28,15 @@ public class NewMain {
     public static void main(String[] args) {
         // TODO code application logic here
         FabricaDAO fabrica = new FabricaDAO();
+
+        ResiduoDAO residuo = fabrica.crearResiduoDAO();
+
+        Residuo residuoo = residuo.buscarResiduo("64645f525f41805980591b12");
+
+        if (residuoo != null) {
+            System.out.println(residuoo.getCodigo());
+        }
+
 //
 ////        ProductorDAO productor = fabrica.crearProductorDAO();
 ////
@@ -49,7 +58,6 @@ public class NewMain {
 ////
 ////        if (ad != null) {
 ////            System.out.println("goasd");
-
 ////        }
     }
 

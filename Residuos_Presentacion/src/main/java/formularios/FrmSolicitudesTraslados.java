@@ -23,7 +23,7 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
     private List<Residuo> residuosSeleccionados;
     private List<Residuo> listaResiduos;
     private Usuario usuario;
-    
+
     /**
      * Creates new form FrmSolicitudesTraslados
      */
@@ -36,10 +36,11 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
         this.llenarTablaResiduos();
     }
 
-    /** Metodo que llena la tabla tblQuimicosDisponibles, conforme al residuo
+    /**
+     * Metodo que llena la tabla tblQuimicosDisponibles, conforme al residuo
      * sleeccionado.
-    */
-    public void llenarTablaResiduoQuimicos(Residuo residuo){
+     */
+    public void llenarTablaResiduoQuimicos(Residuo residuo) {
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblQuimicosDisponibles.getModel();
         // Limpia tabla anterior
         modeloTabla.setRowCount(0);
@@ -50,10 +51,12 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
             modeloTabla.addRow(fila);
         });
     }
-    
-    /** Metodo que llena la tabla tblSolicitudesTraslado con los residuos almacenados.
-    */
-    public void llenarTablaResiduos(){
+
+    /**
+     * Metodo que llena la tabla tblSolicitudesTraslado con los residuos
+     * almacenados.
+     */
+    public void llenarTablaResiduos() {
         DefaultTableModel modeloTabla = (DefaultTableModel) this.tblSolicitudesTraslado.getModel();
         // Limpia tabla anterior
         modeloTabla.setRowCount(0);
@@ -61,14 +64,13 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
             Object[] fila = {
                 residuo.getId(),
                 residuo.getCodigo(),
-                residuo.getNombre(),
-                
-            };
+                residuo.getNombre(),};
             modeloTabla.addRow(fila);
         });
     }
 
-    /** Metodo que llena la tabla tblSeleccionSolicitudes conforme a los residuos 
+    /**
+     * Metodo que llena la tabla tblSeleccionSolicitudes conforme a los residuos
      * seleccionados.
      */
     public void llenarTablaQuimicoSeleccionado() {
@@ -84,10 +86,11 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
 
         });
     }
-    
-    /** Metodo que 
-     * 
-    */
+
+    /**
+     * Metodo que
+     *
+     */
     public void seleccionarResiduo() {
 //        int fila = this.tblSolicitudesTraslado.getSelectedRow();
 //        int id = (int)tblSolicitudesTraslado.getValueAt(fila, 0);
@@ -102,7 +105,7 @@ public class FrmSolicitudesTraslados extends javax.swing.JFrame {
 //        this.llenarTablaQuimico();
 
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
