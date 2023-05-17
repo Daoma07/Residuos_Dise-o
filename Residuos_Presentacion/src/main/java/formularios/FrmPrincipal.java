@@ -185,9 +185,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnSolicitarTrasladoProductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarTrasladoProductorActionPerformed
-        // TODO add your handling code here:
-        FrmSolicitudesTraslados frmSolicitudesTraslados = new FrmSolicitudesTraslados();
-        frmSolicitudesTraslados.setVisible(true);
+        fabrica.crearFormularioSolicitudesTraslados(usuario).setVisible(true);
     }//GEN-LAST:event_btnSolicitarTrasladoProductorActionPerformed
 
     private void btnRegistrarResiduoProductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarResiduoProductorActionPerformed
